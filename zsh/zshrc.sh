@@ -55,6 +55,7 @@ alias vi="nvim -p"
 alias v="nvim -p"
 alias cls="clear"
 alias tm="tmux"
+alias la="ls -al"
 
 export ANDROID_HOME=/home/qadc/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
