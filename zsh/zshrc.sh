@@ -1,7 +1,7 @@
 # Vars
 	HISTFILE=~/.zsh_history
-	SAVEHIST=1000 
-	setopt inc_append_history # To save every command before it is executed 
+	SAVEHIST=1000
+	setopt inc_append_history # To save every command before it is executed
 	setopt share_history # setopt inc_append_history
 
 # Aliases
@@ -20,7 +20,7 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 	}
 	alias cd="c"
 
-# For vim mappings: 
+# For vim mappings:
 	stty -ixon
 
 source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
@@ -46,3 +46,22 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 source ~/dotfiles/zsh/prompt.sh
+
+alias stopvpn="sudo service openvpn stop"
+alias startvpn="sudo service openvpn start"
+alias statusvpn="sudo service openvpn status"
+alias vim="nvim -p"
+alias vi="nvim -p"
+alias v="nvim -p"
+alias cls="clear"
+alias tm="tmux"
+
+export ANDROID_HOME=/home/qadc/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+TERM=screen-256color
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/qadc/.sdkman"
+[[ -s "/home/qadc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/qadc/.sdkman/bin/sdkman-init.sh"
