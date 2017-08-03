@@ -98,8 +98,8 @@ printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
-cp '$HOME/dotfiles/nvim_config.d/nvim' '$HOME/.config/nvim'
-cp '$HOME/dotfiles/vim/vim.d' '$HOME/.vim'
+cp -ru $HOME/dotfiles/nvim_config.d/nvim $HOME/.config/nvim
+cp -ru $HOME/dotfiles/vim/vim.d $HOME/.vim
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
