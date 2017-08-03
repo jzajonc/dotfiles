@@ -8,7 +8,7 @@ filetype off     " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'           " let Vundle manage Vundle, required
 "---------=== Code/project navigation ===-------------
 Plugin 'scrooloose/nerdtree'            " A tree explorer plugin for vim
 Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
@@ -186,17 +186,17 @@ augroup END
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 
 "NERDTree
-map <F1> :NERDTreeToggle<CR>    " browse the list of files in the current directory
+map <F3> :NERDTreeToggle<CR>    " browse the list of files in the current directory
 
 " Unite settings
 nnoremap <F2> :Unite buffer<CR> " browse a list of the currently opened buffers
 
 " TaskList settings
-map <F3> :TaskList<CR> " show pending tasks list
+" map <F3> :TaskList<CR> " show pending tasks list
 
 " TagBar settings
-map <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 0 " autofocus on Tagbar open
+" map <F4> :TagbarToggle<CR>
+" let g:tagbar_autofocus = 0 " autofocus on Tagbar open
 
 " ConqueTerm
 " nnoremap <F5> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
@@ -327,8 +327,8 @@ noremap <C-Left> :bp<CR>  " move to previous buffer
 " nnoremap <C-h> <C-w><C-h>
 
 " Easier change size for splitted windows
-nnoremap <M-[> :vertical resize +5<cr>
-nnoremap <M-]> :vertical resize -5<cr>
+nnoremap <M-{> :vertical resize +5<cr>
+nnoremap <M-}> :vertical resize -5<cr>
 
 " Activate autocomplete at <Ctrl+Space>
 inoremap <C-space> <C-x><C-o>
@@ -417,17 +417,17 @@ let g:syntastic_html_checkers = []
 "=====================================================
 " Small helper that inserts a random uuid4
 " ----------------------------------------
-function! InsertUUID4()
-python << endpython
-if 1:
-    import uuid, vim
-    s = str(uuid.uuid4())
-    cpos = vim.current.window.cursor
-    cline = vim.current.line
-    vim.current.line = cline[:cpos[1] + 1] + s + cline[cpos[1] + 1:]
-    vim.current.window.cursor = (cpos[0], cpos[1] + len(s))
-endpython
-endfunction
+" function! InsertUUID4()
+" python << endpython
+" if 1:
+"     import uuid, vim
+"     s = str(uuid.uuid4())
+"     cpos = vim.current.window.cursor
+"     cline = vim.current.line
+"     vim.current.line = cline[:cpos[1] + 1] + s + cline[cpos[1] + 1:]
+"     vim.current.window.cursor = (cpos[0], cpos[1] + len(s))
+" endpython
+" endfunction
 
 " My Function
 
