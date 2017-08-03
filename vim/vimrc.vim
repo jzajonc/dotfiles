@@ -334,7 +334,7 @@ nnoremap <M-]> :vertical resize -5<cr>
 inoremap <C-space> <C-x><C-o>
 
 " Generate and insert UUID4 into code by <F12> key
-nnoremap <F12> :call InsertUUID4()<CR>
+" nnoremap <F12> :call InsertUUID4()<CR>
 
 " Python code check on PEP8
 autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
@@ -479,7 +479,7 @@ set cursorline
 let g:airline_powerline_fonts = 1
 
 " nnoremap <F5> :echo system('python3 "' . expand('%') . '"')<cr>
-nnoremap <F6> :Commentary<CR>
+" nnoremap <F6> :Commentary<CR>
 
 " From video Vim 04 - Окна
 nnoremap <silent> <C-h> :call WinMove('h')<CR>
