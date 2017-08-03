@@ -5,7 +5,17 @@
 	setopt share_history # setopt inc_append_history
 
 # Aliases
-	alias v="vim -p"
+	# alias v="vim -p"
+    alias stopvpn="sudo service openvpn stop"
+    alias startvpn="sudo service openvpn start"
+    alias statusvpn="sudo service openvpn status"
+    alias vim="nvim -p"
+    alias vi="nvim -p"
+    alias v="nvim -p"
+    alias cls="clear"
+    alias tm="tmux"
+    alias la="ls -a -l --sort=extension -v"
+    alias _="sudo"
 
 # Settings
 	export VISUAL=vim
@@ -46,16 +56,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 source ~/dotfiles/zsh/prompt.sh
-
-alias stopvpn="sudo service openvpn stop"
-alias startvpn="sudo service openvpn start"
-alias statusvpn="sudo service openvpn status"
-alias vim="nvim -p"
-alias vi="nvim -p"
-alias v="nvim -p"
-alias cls="clear"
-alias tm="tmux"
-alias la="ls -a -l --sort=extension -v"
 
 export ANDROID_HOME=/home/qadc/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
