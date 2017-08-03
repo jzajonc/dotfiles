@@ -224,7 +224,7 @@ let g:syntastic_warning_symbol = 'x'
 let g:syntastic_style_warning_symbol = 'x'
 
 " Vim-Airline
-let g:airline_theme='base16_monokai'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
