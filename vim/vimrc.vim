@@ -902,4 +902,40 @@ function! RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+"=====================================================
+
+" http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
+" Disable one diff window during a three-way diff allowing you to cut out the
+" noise of a three-way diff and focus on just the changes between two versions
+" at a time. Inspired by Steve Losh's Splice
+function! DiffToggle(window)
+  " Save the cursor position and turn on diff for all windows
+  let l:save_cursor = getpos('.')
+  windo :diffthis
+  " Turn off diff for the specified window (but keep scrollbind) and move
+  " the cursor to the left-most diff window
+  exe a:window . "wincmd w"
+  diffoff
+  set scrollbind
+  set cursorbind
+  exe a:window . "wincmd " . (a:window == 1 ? "l" : "h")
+  " Update the diff and restore the cursor position
+  diffupdate
+  call setpos('.', l:save_cursor)
+endfunction
+
+" Toggle diff view on the left, center, or right windows
+nmap <silent> <leader>dl :call DiffToggle(1)<cr>
+nmap <silent> <leader>dc :call DiffToggle(2)<cr>
+nmap <silent> <leader>dr :call DiffToggle(3)<cr>
+
+"=====================================================
+
+" Resize settings
+nnoremap <silent> <Leader>] :vertical resize +2<CR>
+nnoremap <silent> <Leader>[ :vertical resize -2<CR>
+nnoremap <silent> <Leader>+ :resize +2<CR>
+nnoremap <silent> <Leader>- :resize -2<CR>
+
 "=====================================================
