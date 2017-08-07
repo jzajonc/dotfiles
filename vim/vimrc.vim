@@ -70,6 +70,7 @@ Plug 'rosenfeld/conque-term'          " Consoles as buffers
 Plug 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plug 'Shougo/unite.vim'               " Navigation between buffers and files
 
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -143,6 +144,7 @@ Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
 Plug 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
+
 
 
 " javascript
@@ -244,6 +246,8 @@ set fileencodings=utf-8
 set bomb
 set binary
 set ttyfast
+
+
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -947,4 +951,3 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-

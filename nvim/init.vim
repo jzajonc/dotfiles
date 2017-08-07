@@ -49,7 +49,30 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
-Plug 'kien/ctrlp.vim'
+Plug 'plasticboy/vim-markdown'        " Markdown Vim Mode
+Plug 'godlygeek/tabular'              " Vim script for text filtering and alignment
+Plug 'ekalinin/Dockerfile.vim'        " Vim syntax file & snippets for Docker's Dockerfile
+Plug 'terryma/vim-multiple-cursors'   " True Sublime Text style multiple selections for Vim
+Plug 'elzr/vim-json'                  " Distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
+Plug 'svermeulen/vim-easyclip'        " EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of making using the clipboard in Vim simpler and more intuitive without losing any of its power.
+Plug 'WolfgangMehner/awk-support'     " This repository hosts the latest development versions of various Vim plug-ins. Currently maintained by Wolfgang Mehner
+Plug 'WolfgangMehner/bash-support'
+Plug 'WolfgangMehner/c-support'
+Plug 'WolfgangMehner/latex-support'
+Plug 'WolfgangMehner/lua-support'
+Plug 'WolfgangMehner/matlab-support'
+Plug 'WolfgangMehner/perl-support'
+Plug 'WolfgangMehner/vim-support'
+Plug 'WolfgangMehner/git-support'
+Plug 'jmcneal/verilog-support'
+Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with dot(.)
+Plug 'kien/ctrlp.vim'                 " Ctrl+P choose file
+Plug 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+Plug 'rosenfeld/conque-term'          " Consoles as buffers
+Plug 'fisadev/FixedTaskList.vim'      " Pending tasks list
+Plug 'Shougo/unite.vim'               " Navigation between buffers and files
+
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -121,11 +144,20 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
+Plug 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
+
 
 
 " javascript
 "" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
+
+" --- CSS ---
+Plug 'JulesWang/css.vim'              " CSS syntax file
+Plug 'groenewege/vim-less'            " Vim syntax for LESS (dynamic CSS)
 
 
 " lisp
@@ -157,11 +189,16 @@ Plug 'arnaud-lb/vim-php-namespace'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-Plug 'janko-m/vim-test'
-Plug 'alfredodeza/pytest.vim'
-Plug 'heavenshell/vim-pydocstring'
+Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
+Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
+Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+Plug 'hynek/vim-python-pep8-indent'   " PEP8 indent
+Plug 'jmcantrell/vim-virtualenv'      " Virtualenv support in VIM
+Plug 'janko-m/vim-test'               " A Vim wrapper for running tests on different granularities.
+Plug 'alfredodeza/pytest.vim'         " A simple way of running your tests (with py.test) from within VIM.
+Plug 'heavenshell/vim-pydocstring'    " Generate Python docstring to your Python script file.
 
 
 " ruby
@@ -210,6 +247,8 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
+set ttyfast
+
 
 
 "" Fix backspace indent
@@ -282,7 +321,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 
@@ -901,4 +940,3 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
