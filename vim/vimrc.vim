@@ -69,7 +69,7 @@ Plug 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags,
 Plug 'rosenfeld/conque-term'          " Consoles as buffers
 Plug 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plug 'Shougo/unite.vim'               " Navigation between buffers and files
-
+Plug 'szw/vim-tags'                   " Ctags generator for Vim
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
