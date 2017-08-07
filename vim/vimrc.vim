@@ -570,12 +570,12 @@ nnoremap <silent> <leader><space> :noh<cr>
 "" Switching windows
 " noremap <C-j> <C-w>j
 " noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+" noremap <C-l> <C-w>l
 " noremap <C-h> <C-w>h
 nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
-" nnoremap <silent> <C-l> :call WinMove('l')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
