@@ -75,6 +75,8 @@ plugins=(virtualenv virtualenvwrapper)
 export SDKMAN_DIR="/home/qadc/.sdkman"
 [[ -s "/home/qadc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/qadc/.sdkman/bin/sdkman-init.sh"
 
+
+# My settings for start tmux
 # tmux-new() {
 #   if [[ -n $TMUX ]]; then
 #     tmux switch-client -t "$(TMUX= tmux -S "${TMUX%,*,*}" new-session -dP "$@")"
@@ -86,9 +88,10 @@ export SDKMAN_DIR="/home/qadc/.sdkman"
 # # example usage:
 # tmux-new -s new > /dev/null 2>&1
 
-# Run tmux if exists
-if command -v tmux>/dev/null; then
-  [ -z $TMUX ] && exec tmux
-else
-  echo "tmux not installed. Run ./deploy to configure dependencies"
-fi
+# # Run tmux if exists
+# if command -v tmux>/dev/null; then
+#   [ -z $TMUX ] && exec tmux
+# else
+#   echo "tmux not installed. Run ./deploy to configure dependencies"
+# fi
+
