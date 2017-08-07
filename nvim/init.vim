@@ -726,9 +726,6 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-" python-mode
-let g:pymode_python = 'python3'
-
 " jedi-vim
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -969,3 +966,61 @@ map <F12> :Tags<cr>
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
+
+"=====================================================
+" Python-mode settings
+"=====================================================
+" Python-mode
+" Activate rope
+" Keys:
+" K Show python docs
+" <Ctrl-Space> Rope autocomplete
+" <Ctrl-c>g Rope goto definition
+" <Ctrl-c>d Rope show documentation
+" <Ctrl-c>f Rope find occurrences
+" <Leader>b Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[ Jump on previous class or function (normal, visual, operator modes)
+" ]] Jump on next class or function (normal, visual, operator modes)
+" [M Jump on previous class or method (normal, visual, operator modes)
+" ]M Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 0
+
+" Documentation
+let g:pymode_doc = 0
+let g:pymode_doc_key = 'K'
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checkers = ['pylint', 'pep8']
+let g:pymode_lint_cwindow = 1
+let g:pymode_lint_ignore="E501,W601,C0110,C0111"
+let g:pymode_lint_write = 0
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+
+" Syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+
+" Get possibility to run Python code
+let g:pymode_run = 0
+
+" Other options
+let g:pymode_options_colorcolumn = 0
+if has("gui_running")
+    let g:airline_powerline_fonts = 1
+" else
+"     let g:airline_powerline_fonts = 0
+endif
+
+" python-mode
+let g:pymode_python = 'python3'
