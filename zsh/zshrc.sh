@@ -66,6 +66,29 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 TERM=screen-256color
 
+source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
+
+plugins=(virtualenv virtualenvwrapper)
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/qadc/.sdkman"
 [[ -s "/home/qadc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/qadc/.sdkman/bin/sdkman-init.sh"
+
+# tmux-new() {
+#   if [[ -n $TMUX ]]; then
+#     tmux switch-client -t "$(TMUX= tmux -S "${TMUX%,*,*}" new-session -dP "$@")"
+#   else
+#     tmux new-session "$@"
+#   fi
+# }
+
+# # example usage:
+# tmux-new -s new > /dev/null 2>&1
+
+# Run tmux if exists
+if command -v tmux>/dev/null; then
+  [ -z $TMUX ] && exec tmux
+else
+  echo "tmux not installed. Run ./deploy to configure dependencies"
+fi
