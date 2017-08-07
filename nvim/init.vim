@@ -191,7 +191,8 @@ Plug 'arnaud-lb/vim-php-namespace'
 "" Python Bundle
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
-Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+" Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+Plug 'dc-avasilev/python-mode'        " My fixes
 Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
 Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 indent
@@ -725,6 +726,9 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
+" python-mode
+let g:pymode_python = 'python3'
+
 " jedi-vim
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -855,42 +859,8 @@ else
 endif
 
 "=====================================================
-" ~~~~~~ My Settings ~~~~~~
-
-" http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
-" Disable one diff window during a three-way diff allowing you to cut out the
-" noise of a three-way diff and focus on just the changes between two versions
-" at a time. Inspired by Steve Losh's Splice
-function! DiffToggle(window)
-  " Save the cursor position and turn on diff for all windows
-  let l:save_cursor = getpos('.')
-  windo :diffthis
-  " Turn off diff for the specified window (but keep scrollbind) and move
-  " the cursor to the left-most diff window
-  exe a:window . "wincmd w"
-  diffoff
-  set scrollbind
-  set cursorbind
-  exe a:window . "wincmd " . (a:window == 1 ? "l" : "h")
-  " Update the diff and restore the cursor position
-  diffupdate
-  call setpos('.', l:save_cursor)
-endfunction
-
-" Toggle diff view on the left, center, or right windows
-nmap <silent> <leader>dl :call DiffToggle(1)<cr>
-nmap <silent> <leader>dc :call DiffToggle(2)<cr>
-nmap <silent> <leader>dr :call DiffToggle(3)<cr>
-
-" Deoplete settings
-let g:deoplete#enable_at_startup = 1
-
-" Resize settings
-nnoremap <silent> <Leader>] :vertical resize +2<CR>
-nnoremap <silent> <Leader>[ :vertical resize -2<CR>
-nnoremap <silent> <Leader>+ :resize +2<CR>
-nnoremap <silent> <Leader>- :resize -2<CR>
-
+" My Settings
+"=====================================================
 " Execute current file
 nnoremap <F5> :call ExecuteFile()<CR>
 
@@ -936,6 +906,41 @@ function! RunShellCommand(cmdline)
 endfunction
 
 "=====================================================
+
+" http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
+" Disable one diff window during a three-way diff allowing you to cut out the
+" noise of a three-way diff and focus on just the changes between two versions
+" at a time. Inspired by Steve Losh's Splice
+function! DiffToggle(window)
+  " Save the cursor position and turn on diff for all windows
+  let l:save_cursor = getpos('.')
+  windo :diffthis
+  " Turn off diff for the specified window (but keep scrollbind) and move
+  " the cursor to the left-most diff window
+  exe a:window . "wincmd w"
+  diffoff
+  set scrollbind
+  set cursorbind
+  exe a:window . "wincmd " . (a:window == 1 ? "l" : "h")
+  " Update the diff and restore the cursor position
+  diffupdate
+  call setpos('.', l:save_cursor)
+endfunction
+
+" Toggle diff view on the left, center, or right windows
+nmap <silent> <leader>dl :call DiffToggle(1)<cr>
+nmap <silent> <leader>dc :call DiffToggle(2)<cr>
+nmap <silent> <leader>dr :call DiffToggle(3)<cr>
+
+"=====================================================
+
+" Resize settings
+nnoremap <silent> <Leader>] :vertical resize +2<CR>
+nnoremap <silent> <Leader>[ :vertical resize -2<CR>
+nnoremap <silent> <Leader>+ :resize +2<CR>
+nnoremap <silent> <Leader>- :resize -2<CR>
+
+"=====================================================
 " My settings for move lines
 
 nnoremap <A-j> :m .+1<CR>==
@@ -961,3 +966,6 @@ endfunction
 
 " My settings for tags
 map <F12> :Tags<cr>
+
+" Deoplete settings
+let g:deoplete#enable_at_startup = 1

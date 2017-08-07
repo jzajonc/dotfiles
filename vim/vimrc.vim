@@ -189,7 +189,8 @@ Plug 'arnaud-lb/vim-php-namespace'
 "" Python Bundle
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
-Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+" Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+Plug 'dc-avasilev/python-mode'        " My fixes
 Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
 Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 indent
@@ -734,6 +735,9 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
+
+" python-mode
+let g:pymode_python = 'python3'
 
 " jedi-vim
 let g:jedi#popup_on_dot = 0
