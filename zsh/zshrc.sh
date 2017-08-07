@@ -42,6 +42,7 @@ source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
 source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/plugins/antigen.zsh
 source ~/dotfiles/zsh/keybindings.sh
 
 # Fix for arrow-key searching
@@ -69,7 +70,7 @@ TERM=screen-256color
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
 
-plugins=(virtualenv virtualenvwrapper)
+plugins=( virtualenv virtualenvwrapper oh-my-zsh-virtualenv-prompt )
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/qadc/.sdkman"
@@ -94,4 +95,3 @@ export SDKMAN_DIR="/home/qadc/.sdkman"
 # else
 #   echo "tmux not installed. Run ./deploy to configure dependencies"
 # fi
-
