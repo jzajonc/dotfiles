@@ -969,3 +969,6 @@ function! WinMove(key)
     exec "wincmd ".a:key
   endif
 endfunction
+
+" My settings for tags
+map <F12> :Tags<cr>
