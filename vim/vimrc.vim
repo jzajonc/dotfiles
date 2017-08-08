@@ -72,6 +72,8 @@ Plug 'Shougo/unite.vim'               " Navigation between buffers and files
 Plug 'szw/vim-tags'                   " Ctags generator for Vim
 Plug 'jdkanani/vim-material-theme'    " Material theme
 Plug 'kristijanhusak/vim-hybrid-material'  "Material color scheme for Vim based on w0ng/vim-hybrid color scheme
+Plug 'crusoexia/vim-monokai'          " Refined Monokai color scheme for vim
+" Plug 'sickill/vim-monokai'            " Monokai color scheme for Vim converted from Textmate theme
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -300,11 +302,16 @@ set number
 
 " My settings add material theme
 "*****************************************************************************
+" set termguicolors
 " syntax enable
 " set background=dark
 " colorscheme material-theme
 set background=dark
 colorscheme hybrid_reverse
+" syntax enable
+" colorscheme monokai
+" let g:monokai_term_italic = 1
+" let g:monokai_gui_italic = 1
 "*****************************************************************************
 
 " let no_buffers_menu=1
@@ -315,7 +322,8 @@ colorscheme hybrid_reverse
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Monospace\ 10
+" set gfn=Monospace\ 10
+set gfn=Hack\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
