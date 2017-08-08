@@ -992,15 +992,15 @@ let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
 let g:pymode_lint_checkers = ['pylint', 'pep8']
 let g:pymode_lint_cwindow = 1
-let g:pymode_lint_ignore="E501,W601,C0110,C0111"
+let g:pymode_lint_ignore="E501,W601,W391,C0110,C0111"
 let g:pymode_lint_write = 0
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
 
 " Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>bp'
+let g:pymode_breakpoint = 0
+let g:pymode_breakpoint_key = '<leader>b'
 
 " Syntax highlighting
 let g:pymode_syntax = 1
