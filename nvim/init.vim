@@ -72,6 +72,8 @@ Plug 'rosenfeld/conque-term'          " Consoles as buffers
 Plug 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plug 'Shougo/unite.vim'               " Navigation between buffers and files
 Plug 'szw/vim-tags'                   " Ctags generator for Vim
+Plug 'jdkanani/vim-material-theme'    " Material theme
+Plug 'kristijanhusak/vim-hybrid-material'  "Material color scheme for Vim based on w0ng/vim-hybrid color scheme
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -298,10 +300,19 @@ syntax on
 set ruler
 set number
 
-let no_buffers_menu=1
-if !exists('g:not_finish_vimplug')
-  colorscheme molokai
-endif
+" My settings add material theme
+"*****************************************************************************
+" syntax enable
+" set background=dark
+" colorscheme material-theme
+set background=dark
+colorscheme hybrid_reverse
+"*****************************************************************************
+
+" let no_buffers_menu=1
+" if !exists('g:not_finish_vimplug')
+"   colorscheme molokai
+" endif
 
 set mousemodel=popup
 set t_Co=256
@@ -354,7 +365,8 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
+let g:airline_theme = "hybrid"
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
