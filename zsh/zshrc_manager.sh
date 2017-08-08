@@ -1,12 +1,12 @@
 # Load settings
 source ~/dotfiles/zsh/zshrc.sh
 
-# Run tmux if exists
-if command -v tmux>/dev/null; then
-    [ -z $TMUX ] && exec tmux
-else
-    echo "tmux not installed. Run ./deploy to configure dependencies"
-fi
+# # Run tmux if exists
+# if command -v tmux>/dev/null; then
+#     [ -z $TMUX ] && exec tmux
+# else
+#     echo "tmux not installed. Run ./deploy to configure dependencies"
+# fi
 
 # # Pulling changes from repo
 # echo "Updating configuration"
