@@ -1,6 +1,6 @@
 #!/bin/bash -
 
-prompt_install() {
+function prompt_install() {
 	echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
 	old_stty_cfg=$(stty -g)
 	stty raw -echo
@@ -26,7 +26,7 @@ prompt_install() {
 	fi
 }
 
-check_for_software() {
+function check_for_software() {
 	echo "Checking to see if $1 is installed"
 	if ! [ -x "$(command -v $1)" ]; then
 		prompt_install $1
@@ -35,7 +35,7 @@ check_for_software() {
 	fi
 }
 
-check_default_shell() {
+function check_default_shell() {
 	if [ -z "${SHELL##*zsh*}" ] ;then
 			echo "Default shell is zsh."
 	else
