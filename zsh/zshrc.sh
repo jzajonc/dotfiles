@@ -65,6 +65,9 @@ export ANDROID_HOME=/home/qadc/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 TERM=screen-256color
 
 source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
