@@ -47,13 +47,13 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
-Plug 'plasticboy/vim-markdown'        " Markdown Vim Mode
-Plug 'godlygeek/tabular'              " Vim script for text filtering and alignment
-Plug 'ekalinin/Dockerfile.vim'        " Vim syntax file & snippets for Docker's Dockerfile
-Plug 'terryma/vim-multiple-cursors'   " True Sublime Text style multiple selections for Vim
-Plug 'elzr/vim-json'                  " Distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
-Plug 'svermeulen/vim-easyclip'        " EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of making using the clipboard in Vim simpler and more intuitive without losing any of its power.
-Plug 'WolfgangMehner/awk-support'     " This repository hosts the latest development versions of various Vim plug-ins. Currently maintained by Wolfgang Mehner
+Plug 'plasticboy/vim-markdown'             " Markdown Vim Mode
+Plug 'godlygeek/tabular'                   " Vim script for text filtering and alignment
+Plug 'ekalinin/Dockerfile.vim'             " Vim syntax file & snippets for Dockers Dockerfile
+Plug 'terryma/vim-multiple-cursors'        " True Sublime Text style multiple selections for Vim
+Plug 'elzr/vim-json'                       " Distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
+Plug 'svermeulen/vim-easyclip'             " EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of making using the clipboard in Vim simpler and more intuitive without losing any of its power.
+Plug 'WolfgangMehner/awk-support'          " This repository hosts the latest development versions of various Vim plug-ins. Currently maintained by Wolfgang Mehner
 Plug 'WolfgangMehner/bash-support'
 Plug 'WolfgangMehner/c-support'
 Plug 'WolfgangMehner/latex-support'
@@ -63,17 +63,26 @@ Plug 'WolfgangMehner/perl-support'
 Plug 'WolfgangMehner/vim-support'
 Plug 'WolfgangMehner/git-support'
 Plug 'jmcneal/verilog-support'
-Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with dot(.)
-Plug 'kien/ctrlp.vim'                 " Ctrl+P choose file
-Plug 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
-Plug 'rosenfeld/conque-term'          " Consoles as buffers
-Plug 'fisadev/FixedTaskList.vim'      " Pending tasks list
-Plug 'Shougo/unite.vim'               " Navigation between buffers and files
-Plug 'szw/vim-tags'                   " Ctags generator for Vim
-Plug 'jdkanani/vim-material-theme'    " Material theme
-Plug 'kristijanhusak/vim-hybrid-material'  "Material color scheme for Vim based on w0ng/vim-hybrid color scheme
-Plug 'crusoexia/vim-monokai'          " Refined Monokai color scheme for vim
-" Plug 'sickill/vim-monokai'            " Monokai color scheme for Vim converted from Textmate theme
+Plug 'tpope/vim-repeat'                    " enable repeating supported plugin maps with dot(.)
+Plug 'kien/ctrlp.vim'                      " Ctrl+P choose file
+Plug 'tpope/vim-surround'                  " Parentheses, brackets, quotes, XML tags, and more
+Plug 'rosenfeld/conque-term'               " Consoles as buffers
+Plug 'fisadev/FixedTaskList.vim'           " Pending tasks list
+Plug 'Shougo/unite.vim'                    " Navigation between buffers and files
+Plug 'szw/vim-tags'                        " Ctags generator for Vim
+Plug 'jdkanani/vim-material-theme'         " Material theme
+Plug 'kristijanhusak/vim-hybrid-material'  " Material color scheme for Vim based on w0ng/vim-hybrid color scheme
+Plug 'crusoexia/vim-monokai'               " Refined Monokai color scheme for vim
+" Plug 'sickill/vim-monokai'                 " Monokai color scheme for Vim converted from Textmate theme
+Plug 'austintaylor/vim-commaobject'        " A text object for manipulating comma-delimited lists
+Plug 'vim-ctrlspace/vim-ctrlspace'         " Vim Space Controller
+Plug 'rstacruz/sparkup'                    " A parser for a condensed HTML format
+Plug 'mileszs/ack.vim'                     " Vim plugin for the Perl module / CLI script ACK
+Plug 'tomtom/tcomment_vim'                 " An extensible & universal comment vim-plugin that also handles embedded filetypes
+Plug 'easymotion/vim-easymotion'           " Vim motions on speed!
+Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines 
+Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -187,6 +196,8 @@ Plug 'c9s/perlomni.vim'
 " php
 "" PHP Bundle
 Plug 'arnaud-lb/vim-php-namespace'
+Plug 'docteurklein/php-getter-setter.vim'  " a vim plugin to generate php getters and setters from class properties
+Plug 'shawncplus/phpcomplete.vim'          " Improved PHP omnicompletion
 
 
 " python
