@@ -80,7 +80,7 @@ Plug 'austintaylor/vim-commaobject'        " A text object for manipulating comm
 Plug 'vim-ctrlspace/vim-ctrlspace'         " Vim Space Controller
 Plug 'rstacruz/sparkup'                    " A parser for a condensed HTML format
 Plug 'mileszs/ack.vim'                     " Vim plugin for the Perl module / CLI script ACK
-Plug 'tomtom/tcomment_vim'                 " An extensible & universal comment vim-plugin that also handles embedded filetypes
+" Plug 'tomtom/tcomment_vim'                 " An extensible & universal comment vim-plugin that also handles embedded filetypes
 Plug 'easymotion/vim-easymotion'           " Vim motions on speed!
 Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines 
@@ -538,7 +538,7 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>q :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
@@ -588,7 +588,7 @@ noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :bd<CR>
+noremap <leader>q :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
