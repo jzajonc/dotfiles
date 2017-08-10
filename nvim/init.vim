@@ -85,6 +85,7 @@ Plug 'easymotion/vim-easymotion'           " Vim motions on speed!
 Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines 
 Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+Plug 'Quramy/vison'                        " A Vim plugin for writing JSON with JSON Schema
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -540,8 +541,8 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<Enter>"
-let g:UltiSnipsJumpForwardTrigger="<Enter>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
