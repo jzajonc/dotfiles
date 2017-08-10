@@ -209,7 +209,7 @@ Plug 'dc-avasilev/python-mode'        " My fixes
 Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
 Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 indent
-Plug 'jmcantrell/vim-virtualenv'      " Virtualenv support in VIM
+" Plug 'jmcantrell/vim-virtualenv'      " Virtualenv support in VIM
 Plug 'Coacher/vim-virtualenv'         " Better Python virtual environments support for Vim
 Plug 'janko-m/vim-test'               " A Vim wrapper for running tests on different granularities.
 Plug 'alfredodeza/pytest.vim'         " A simple way of running your tests (with py.test) from within VIM.
