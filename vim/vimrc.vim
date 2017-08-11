@@ -81,10 +81,11 @@ Plug 'mileszs/ack.vim'                     " Vim plugin for the Perl module / CL
 " Plug 'tomtom/tcomment_vim'                 " An extensible & universal comment vim-plugin that also handles embedded filetypes
 Plug 'easymotion/vim-easymotion'           " Vim motions on speed!
 Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete brackets, parens, quotes in pair
-Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines 
+Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines
 Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 Plug 'Quramy/vison'                        " A Vim plugin for writing JSON with JSON Schema
 Plug 'Valloric/YouCompleteMe'              " A code-completion engine for Vim
+Plug 'mustache/vim-mustache-handlebars'    "mustache and handlebars mode for vim
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
