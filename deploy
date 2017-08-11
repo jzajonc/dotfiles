@@ -1,55 +1,55 @@
 #!/bin/bash -
 
 function prompt_install() {
-	echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
-	old_stty_cfg=$(stty -g)
-	stty raw -echo
-	answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-	stty $old_stty_cfg && echo
-	if echo "$answer" | grep -iq "^y" ;then
-		# This could def use community support
-		case "$(uname -s)" in
-			Darwin)
-				brew install $1
-				;;
-			Linux)
-				sudo apt install $1 -y
-				;;
-			FreeBSD)
-				sudo pkg install $1
-				;;
-			*)
-				echo "Operating system not recognized, please install $1 manually, then re-run this script."
-				exit 1
-				;;
-			esac
-	fi
+    echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
+    old_stty_cfg=$(stty -g)
+    stty raw -echo
+    answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+    stty $old_stty_cfg && echo
+    if echo "$answer" | grep -iq "^y" ;then
+        # This could def use community support
+        case "$(uname -s)" in
+            Darwin)
+                brew install $1
+                ;;
+            Linux)
+                sudo apt install $1 -y
+                ;;
+            FreeBSD)
+                sudo pkg install $1
+                ;;
+            *)
+                echo "Operating system not recognized, please install $1 manually, then re-run this script."
+                exit 1
+                ;;
+            esac
+    fi
 }
 
 function check_for_software() {
-	echo "Checking to see if $1 is installed"
-	if ! [ -x "$(command -v $1)" ]; then
-		prompt_install $1
-	else
-		echo "$1 is installed."
-	fi
+    echo "Checking to see if $1 is installed"
+    if ! [ -x "$(command -v $1)" ]; then
+        prompt_install $1
+    else
+        echo "$1 is installed."
+    fi
 }
 
 function check_default_shell() {
-	if [ -z "${SHELL##*zsh*}" ] ;then
-			echo "Default shell is zsh."
-	else
-		echo -n "Default shell is not zsh. Do you want to chsh -s \$(which zsh)? (y/n)"
-		old_stty_cfg=$(stty -g)
-		stty raw -echo
-		answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-		stty $old_stty_cfg && echo
-		if echo "$answer" | grep -iq "^y" ;then
-			chsh -s $(which zsh)
-		else
-			echo "Warning: Your configuration won't work properly. If you exec zsh, it'll exec tmux which will exec your default shell which isn't zsh."
-		fi
-	fi
+    if [ -z "${SHELL##*zsh*}" ] ;then
+            echo "Default shell is zsh."
+    else
+        echo -n "Default shell is not zsh. Do you want to chsh -s \$(which zsh)? (y/n)"
+        old_stty_cfg=$(stty -g)
+        stty raw -echo
+        answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+        stty $old_stty_cfg && echo
+        if echo "$answer" | grep -iq "^y" ;then
+            chsh -s $(which zsh)
+        else
+            echo "Warning: Your configuration won't work properly. If you exec zsh, it'll exec tmux which will exec your default shell which isn't zsh."
+        fi
+    fi
 }
 
 echo "We're going to do the following:"
@@ -64,10 +64,10 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-	echo
+    echo
 else
-	echo "Quitting, nothing was changed."
-	exit 0
+    echo "Quitting, nothing was changed."
+    exit 0
 fi
 
 
@@ -91,13 +91,13 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-	mv ~/.zshrc ~/.zshrc.old
-	mv ~/.tmux.conf ~/.tmux.conf.old
-	mv ~/.vimrc ~/.vimrc.old
-	mv ~/.config/nvim ~/.config/nvim.old
-	mv ~/.vim ~/.vim.old
+    mv ~/.zshrc ~/.zshrc.old
+    mv ~/.tmux.conf ~/.tmux.conf.old
+    mv ~/.vimrc ~/.vimrc.old
+    mv ~/.config/nvim ~/.config/nvim.old
+    mv ~/.vim ~/.vim.old
 else
-	echo -e "\nNot backing up old dotfiles."
+    echo -e "\nNot backing up old dotfiles."
 fi
 
 printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
