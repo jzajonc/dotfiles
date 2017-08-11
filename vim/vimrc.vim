@@ -1072,4 +1072,4 @@ let g:pymode_python = 'python3'
 
 " My settings for hidden symbols
 set list
-set list listchars=tab:→\ ,trail:·,nbsp:·,extends:>,eol:¶
+set list listchars=tab:→\ ,trail:·,nbsp:·,precedes:<,extends:>,eol:¶
