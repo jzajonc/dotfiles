@@ -538,7 +538,7 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>q :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
@@ -582,10 +582,8 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
+noremap <leader>x :bp<CR>
+noremap <leader>z :bn<CR>
 
 "" Close buffer
 noremap <leader>q :bd<CR>
@@ -1037,7 +1035,7 @@ let g:pymode_virtualenv = 1
 
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 0
-let g:pymode_breakpoint_key = '<leader>b'
+let g:pymode_breakpoint_key = '<leader>m'
 
 " Syntax highlighting
 let g:pymode_syntax = 1
