@@ -908,7 +908,7 @@ endif
 " My Settings
 "=====================================================
 " Execute current file
-nnoremap <F5> :call ExecuteFile()<CR>
+nnoremap <F6> :call ExecuteFile()<CR>
 
 " Will attempt to execute the current file based on the `&filetype`
 " You need to manually map the filetypes you use most commonly to the
