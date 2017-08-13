@@ -89,6 +89,9 @@ Plug 'Quramy/vison'                        " A Vim plugin for writing JSON with 
 Plug 'Valloric/YouCompleteMe'              " A code-completion engine for Vim
 Plug 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode for vim
 Plug 'tmux-plugins/vim-tmux'               " vim plugin for tmux.conf
+Plug 'Rykka/riv.vim'                       " Take Notes in rst.
+Plug 'nvie/vim-rst-tables'                 " Easily create and reformat your RST (reStructuredText) tables as you change cell content.
+
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
