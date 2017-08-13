@@ -81,6 +81,8 @@ check_for_software xclip
 echo
 check_for_software tmux
 echo
+check_for_software emacs
+echo
 
 check_default_shell
 
@@ -96,6 +98,8 @@ if echo "$answer" | grep -iq "^y" ;then
     mv ~/.vimrc ~/.vimrc.old
     mv ~/.config/nvim ~/.config/nvim.old
     mv ~/.vim ~/.vim.old
+    mv ~/.emacs.d ~/.emacs.d.old
+    mv ~/.emacs ~/.emacs.old
 else
     echo -e "\nNot backing up old dotfiles."
 fi
@@ -104,6 +108,10 @@ printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 printf "so $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
+
+# Install Spacemacs
+# git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# for install emacs lanch it: emacs --insecure
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
