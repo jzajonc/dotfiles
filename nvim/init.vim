@@ -358,8 +358,20 @@ else
   let g:indentLine_faster = 1
 
 
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+  else
+    if $TERM == 'xterm'
+      set term=xterm-256color
+    endif
+  endif
+
 endif
 
+
+if &term =~ '256color'
+  set t_ut=
+endif
 
 
 "" Disable the blinking cursor.
@@ -584,8 +596,10 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>x :bp<CR>
-noremap <leader>z :bn<CR>
+" noremap <leader>z :bp<CR>
+" noremap <leader>q :bp<CR>
+noremap <leader>x :bn<CR>
+noremap <leader>z :bp<CR>
 
 "" Close buffer
 noremap <leader>q :bd<CR>
