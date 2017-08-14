@@ -16,3 +16,6 @@
 [submodule "tmux/plugins/tmux-better-mouse-mode"]
 	path = tmux/plugins/tmux-better-mouse-mode
 	url = https://github.com/nhdaly/tmux-better-mouse-mode
+[submodule "spacemacs/spacemacs.d"]
+	path = spacemacs/spacemacs.d
+	url = https://github.com/syl20bnr/spacemacs
