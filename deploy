@@ -109,8 +109,9 @@ printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 printf "so $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
-printf "source '$HOME/dotfiles/spacemacs/init.el'" > ~/.emacs.d/init.el
-printf "source '$HOME/dotfiles/spacemacs/.spacemacs'" > ~/.spacemacs
+
+printf '(setq spacemacs-start-directory "~/dotfiles/spacemacs/spacemacs.d/")\n(load-file (concat spacemacs-start-directory "init.el"))' > ~/.emacs.d/init.el
+ln -s ~/dotfiles/spacemacs/.spacemacs ~/.spacemacs
 
 # Install Spacemacs
 # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

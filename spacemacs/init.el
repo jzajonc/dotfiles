@@ -33,5 +33,3 @@
   (require 'server)
   (unless (server-running-p) (server-start)))
 
-(setq spacemacs-start-directory "~/dotfiles/spacemacs/spacemacs.d")
-(load-file (concat spacemacs-start-directory "init.el"))
