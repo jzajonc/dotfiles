@@ -95,7 +95,7 @@ Plug 'garbas/vim-snipmate'                 " Snippets manager
 Plug 'MarcWeber/vim-addon-mw-utils'        " Dependencies #1
 Plug 'tomtom/tlib_vim'                     " Dependencies #2
 Plug 'junegunn/vim-easy-align'             " A Vim alignment plugin
-" Plug 'vim-scripts/Align'                   " Help folks to align text, eqns, declarations, tables, etc
+Plug 'vim-scripts/Align'                   " Help folks to align text, eqns, declarations, tables, etc
 
 
 
