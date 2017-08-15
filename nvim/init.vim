@@ -96,7 +96,12 @@ Plug 'MarcWeber/vim-addon-mw-utils'        " Dependencies #1
 Plug 'tomtom/tlib_vim'                     " Dependencies #2
 Plug 'junegunn/vim-easy-align'             " A Vim alignment plugin
 Plug 'vim-scripts/Align'                   " Help folks to align text, eqns, declarations, tables, etc
-
+Plug 'ujihisa/repl.vim'                    " irb, ghci, and anything else. in Vim.
+Plug 'tpope/vim-fireplace'                 " fireplace.vim: Clojure REPL support
+Plug 'jpalardy/vim-slime'                  " A vim plugin to give you some slime. (Emacs)
+Plug 'kovisoft/slimv'                      " Official mirror of Slimv versions released on vim.org
+" Plug 'johndgiese/vipy'                     " Vim plugin that allows you to use IPython within vim.
+Plug 'ivanov/vim-ipython'                  " A two-way integration between Vim and IPython 0.11+
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -142,6 +147,10 @@ Plug 'ludwig/split-manpage.vim'
 Plug 'tpope/vim-fireplace'            " Clojure completion
 Plug 'guns/vim-clojure-highlight'     " Highlighting code
 Plug 'guns/vim-clojure-static'        " Highlighting for static types
+
+
+" Coffee-script
+Plug 'kchmck/vim-coffee-script'
 
 
 " elixir
@@ -1184,3 +1193,11 @@ nnoremap <F9> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
 nnoremap <F10> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
+
+" Vim-Slime
+let g:slime_target = "tmux"
+let g:slime_no_mappings = 1
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeMotionSend
+nmap <leader>ss <Plug>SlimeLineSend
+
