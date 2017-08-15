@@ -89,6 +89,9 @@ Plug 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode for vi
 Plug 'tmux-plugins/vim-tmux'               " vim plugin for tmux.conf
 Plug 'Rykka/riv.vim'                       " Take Notes in rst.
 Plug 'nvie/vim-rst-tables'                 " Easily create and reformat your RST (reStructuredText) tables as you change cell content.
+Plug 'garbas/vim-snipmate'                 " Snippets manager
+Plug 'MarcWeber/vim-addon-mw-utils'        " Dependencies #1
+Plug 'tomtom/tlib_vim'                     " Dependencies #2
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -130,6 +133,12 @@ Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
 
 
+" --- Clojure ---
+Plug 'tpope/vim-fireplace'            " Clojure completion
+Plug 'guns/vim-clojure-highlight'     " Highlighting code
+Plug 'guns/vim-clojure-static'        " Highlighting for static types
+
+
 " elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'carlosgaldino/elixir-snippets'
@@ -164,6 +173,7 @@ Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
 Plug 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
+Plug 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 
 
 
@@ -234,6 +244,8 @@ Plug 'ecomba/vim-ruby-refactoring'
 " rust
 " Vim racer
 Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'             " Vim support for Rust file detection and syntax highlighting
+
 
 " Rust.vim
 Plug 'rust-lang/rust.vim'
@@ -563,13 +575,10 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 " let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
-let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -650,9 +659,14 @@ let g:elm_format_autosave = 1
 let g:polyglot_disabled = ['elm']
 
 " syntastic
+let g:elm_syntastic_show_warnings = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+noremap <f11> :w<CR>:SyntasticCheck<CR>
+
 
 
 " erlang
@@ -786,6 +800,7 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"  " 0
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 1  " 0
+let g:jedi#popup_select_first = 0   " Disable first select from auto-complete
 
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
@@ -797,6 +812,19 @@ let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
+" --- Python ---
+let python_highlight_all=1
+let python_highlight_exceptions=0
+let python_highlight_builtins=0
+let python_slow_sync=1
+autocmd FileType python setlocal completeopt-=preview
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
+\ formatoptions+=croq softtabstop=4 smartindent
+\ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721
+\ --max-line-length=119'
 
 
 " ruby
@@ -856,7 +884,64 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " scala
 
+"=====================================================
+" Languages support
+"=====================================================
+" --- C/C++/C# ---
+autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal commentstring=/*\ %s\ */
+autocmd FileType cpp,cs setlocal commentstring=//\ %s
+let c_no_curly_error=1
+let g:syntastic_cpp_include_dirs = ['include', '../include']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_include_dirs = ['include', '../include']
+let g:syntastic_c_compiler = 'clang'
 
+" --- Clojure ---
+autocmd FileType clj setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" --- CSS ---
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal commentstring=/*\ %s\ */
+
+" --- Erlang ---
+autocmd Filetype erlang setlocal omnifunc=erlang_complete#Complete
+
+" --- JavaScript ---
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript let b:javascript_fold = 0
+let javascript_enable_domhtmlcss=1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
+
+" --- HTML ---
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+
+" --- Rust ---
+set hidden
+let g:racer_cmd = "/Users/savicvalera/racer/target/release/racer"
+let $RUST_SRC_PATH = "/Users/savicvalera/rust/src"
+autocmd BufRead,BufNewFile *.rs set filetype=rust
+autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+autocmd FileType rust setlocal commentstring=//\ %s
+
+" --- Vim ---
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" --- template language support (SGML / XML too) ---
+autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-e> <Plug>SparkupExecute
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-l> <Plug>SparkupNext
+autocmd FileType htmljinja setlocal commentstring={#\ %s\ #}
+let html_no_rendering=1
+let g:syntastic_html_checkers = []
 "*****************************************************************************
 "*****************************************************************************
 
@@ -1076,3 +1161,18 @@ let g:pymode_python = 'python3'
 
 " My settings for hidden symbols
 set list listchars=tab:→\ ,trail:·,nbsp:·,precedes:<,extends:>,eol:¶
+
+" SnipMate settings
+let g:snippets_dir = "~/.vim/plugged/vim-snippets/snippets"
+
+" Unite settings
+nnoremap <F7> :Unite buffer<CR> " browse a list of the currently opened buffers
+
+" TaskList settings
+map <F8> :TaskList<CR> " show pending tasks list
+
+" ConqueTerm
+nnoremap <F9> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
+nnoremap <F10> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CloseOnEnd = 0
