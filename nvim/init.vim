@@ -1199,8 +1199,8 @@ nnoremap <F7> :Unite buffer<CR> " browse a list of the currently opened buffers
 map <F8> :TaskList<CR> " show pending tasks list
 
 " ConqueTerm
-nnoremap <F9> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
-nnoremap <F10> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
+" nnoremap <F9> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
+" nnoremap <F10> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 
@@ -1210,3 +1210,14 @@ let g:slime_no_mappings = 1
 xmap <leader>s <Plug>SlimeRegionSend
 nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
+
+" Python Flask8
+autocmd FileType python map <buffer> <F10> :call Flake8()<CR>
+
+" Multi cursor
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_key='<F9>'
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
