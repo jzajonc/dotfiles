@@ -100,6 +100,16 @@ Plug 'jpalardy/vim-slime'                  " A vim plugin to give you some slime
 Plug 'kovisoft/slimv'                      " Official mirror of Slimv versions released on vim.org
 " Plug 'johndgiese/vipy'                     " Vim plugin that allows you to use IPython within vim.
 Plug 'ivanov/vim-ipython'                  " A two-way integration between Vim and IPython 0.11+
+Plug 'isnowfy/python-vim-instant-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'suan/vim-instant-markdown'
+Plug 'nelstrom/vim-markdown-preview'
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/Pydiction'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'klen/rope-vim'
+Plug 'ervandew/supertab'
+Plug 'tmhedberg/SimpylFold'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -1195,4 +1205,3 @@ let g:slime_no_mappings = 1
 xmap <leader>s <Plug>SlimeRegionSend
 nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
-
