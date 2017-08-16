@@ -102,7 +102,7 @@ Plug 'jpalardy/vim-slime'                  " A vim plugin to give you some slime
 Plug 'kovisoft/slimv'                      " Official mirror of Slimv versions released on vim.org
 " Plug 'johndgiese/vipy'                     " Vim plugin that allows you to use IPython within vim.
 " Plug 'ivanov/vim-ipython'                  " A two-way integration between Vim and IPython 0.11+
-Plug 'isnowfy/python-vim-instant-markdown'
+" Plug 'isnowfy/python-vim-instant-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-markdown-preview'
