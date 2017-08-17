@@ -1216,7 +1216,7 @@ nmap <leader>ss <Plug>SlimeLineSend
 
 " Multi cursor
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_start_key='<F9>'
+let g:multi_cursor_start_key='<F11>'
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
