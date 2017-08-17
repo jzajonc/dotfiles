@@ -82,7 +82,7 @@ Plug 'mileszs/ack.vim'                     " Vim plugin for the Perl module / CL
 Plug 'easymotion/vim-easymotion'           " Vim motions on speed!
 Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines
-Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+" Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 Plug 'Quramy/vison'                        " A Vim plugin for writing JSON with JSON Schema
 Plug 'Valloric/YouCompleteMe'              " A code-completion engine for Vim
 Plug 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode for vim
@@ -104,7 +104,7 @@ Plug 'kovisoft/slimv'                      " Official mirror of Slimv versions r
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-markdown-preview'
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'klen/rope-vim'
@@ -790,8 +790,8 @@ augroup END
 
 " ocaml
 " Add Merlin to rtp
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Set Merlin as Syntastic checker for OCaml
 let g:syntastic_ocaml_checkers = ['merlin']
@@ -1145,7 +1145,7 @@ let g:pymode_rope = 0
 let g:pymode_doc = 0
 let g:pymode_doc_key = 'K'
 "Linting
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_checkers = ['pylint', 'pep8']
 let g:pymode_lint_cwindow = 1
 let g:pymode_lint_ignore="E501,W601,W391,C0110,C0111"
@@ -1207,7 +1207,7 @@ nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
 
 " Python Flask8
-autocmd FileType python map <buffer> <F10> :call Flake8()<CR>
+" autocmd FileType python nnoremap <buffer> <F10> :call Flake8()<CR>
 
 " Multi cursor
 let g:multi_cursor_use_default_mapping=0
