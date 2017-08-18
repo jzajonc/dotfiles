@@ -10,8 +10,8 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tmux/plugins/tmux-sensible"]
-	path = tmux/plugins/tptmux-sensiblem
+; [submodule "tmux/plugins/tmux-sensible"]
+; 	path = tmux/plugins/tptmux-sensiblem
 	url = https://github.com/tmux-plugins/tmux-sensible
 [submodule "tmux/plugins/tmux-better-mouse-mode"]
 	path = tmux/plugins/tmux-better-mouse-mode
