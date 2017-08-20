@@ -39,9 +39,28 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 source ~/dotfiles/zsh/plugins/antigen.zsh
 
 if [[ ! -d ~/.antigen ]]; then
-	antigen theme refined
-	antigen bundle zsh-users/zsh-autosuggestions
+	# Load the oh-my-zsh's library.
+	antigen use oh-my-zsh
+
+	# Bundles from the default repo (robbyrussell's oh-my-zsh).
+	antigen bundle git
+	antigen bundle heroku
+	antigen bundle pip
+	antigen bundle lein
+	antigen bundle command-not-found
+
+	# Syntax highlighting bundle.
 	antigen bundle zsh-users/zsh-syntax-highlighting
+
+	# Autosuggestions
+	antigen bundle zsh-users/zsh-autosuggestions
+
+	# Load the theme.
+	# antigen theme refined
+	antigen theme robbyrussell
+
+	# Tell Antigen that you're done.
+	antigen apply
 fi
 
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
