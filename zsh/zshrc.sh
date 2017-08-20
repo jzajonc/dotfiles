@@ -36,13 +36,21 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 # For vim mappings:
 	stty -ixon
 
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
-source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
-source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/plugins/antigen.zsh
+
+if [[ -d ~/.antigen ]]
+then
+	antigen theme pure
+	antigen bundle zsh-users/zsh-autosuggestions
+	antigen bundle zsh-users/zsh-syntax-highlighting
+fi
+
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
+source ~/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/keybindings.sh
 
 # Fix for arrow-key searching
