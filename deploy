@@ -92,10 +92,7 @@ function main() {
             sudo add-apt-repository ppa:neovim-ppa/stable
             sudo apt-get update
             sudo apt-get install neovim -y
-            ERROR_CODE=$?
-            if [ ${ERROR_CODE} -gt 0 ]; then
-                sudo apt-get install python-dev python-pip python3-dev -y
-            fi
+            sudo pip3 install neovim
         else
             echo "Neovim is installed"
         fi
