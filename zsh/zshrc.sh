@@ -38,9 +38,9 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 
 source ~/dotfiles/zsh/plugins/antigen.zsh
 
-if [[ -d ~/.antigen ]]
+if [[ ! -d ~/.antigen ]]
 then
-	antigen theme pure
+	antigen theme refined
 	antigen bundle zsh-users/zsh-autosuggestions
 	antigen bundle zsh-users/zsh-syntax-highlighting
 fi
