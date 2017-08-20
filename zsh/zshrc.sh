@@ -48,6 +48,8 @@ fi
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
 source ~/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
@@ -78,8 +80,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 TERM=screen-256color
 
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
-source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
 
 plugins=( virtualenv virtualenvwrapper oh-my-zsh-virtualenv-prompt )
 
