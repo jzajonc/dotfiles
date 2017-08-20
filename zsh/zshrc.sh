@@ -1,6 +1,6 @@
 # Vars
 	HISTFILE=~/.zsh_history
-	SAVEHIST=1000
+	SAVEHIST=1000000
 	setopt inc_append_history # To save every command before it is executed
 	setopt share_history # setopt inc_append_history
 
@@ -9,12 +9,12 @@
     alias stopvpn="sudo service openvpn stop"
     alias startvpn="sudo service openvpn start"
     alias statusvpn="sudo service openvpn status"
-    alias vim="vim -p"
-    alias vi="vim -p"
-    alias v="vim -p"
-    alias nvim="nvim -p"
-    alias nvi="nvim -p"
-    alias nv="nvim -p"
+    alias vim="vim"
+    alias vi="vim"
+    alias v="vim"
+    alias nvim="nvim"
+    alias nvi="nvim"
+    alias nv="nvim"
     alias cls="clear"
     alias tm="tmux"
     alias la="ls -a -l --sort=extension -v"

@@ -13,7 +13,7 @@ function prompt_install() {
                 brew install $1
                 ;;
             Linux)
-                sudo apt install $1 -y
+                sudo apt-get install $1 -y
                 ;;
             FreeBSD)
                 sudo pkg install $1
@@ -52,70 +52,107 @@ function check_default_shell() {
     fi
 }
 
-echo "We're going to do the following:"
-echo "1. Check to make sure you have zsh, vim, neovim, and tmux installed"
-echo "2. We'll help you install them if you don't (exept neovim)"
-echo "3. We're going to check to see if your default shell is zsh"
-echo "4. We'll try to change it if it's not"
+function main() {
+    echo "We're going to do the following:"
+    echo "1. Check to make sure you have zsh, vim, neovim, and tmux installed"
+    echo "2. We'll help you install them if you don't (exept neovim)"
+    echo "3. We're going to check to see if your default shell is zsh"
+    echo "4. We'll try to change it if it's not"
 
-echo "Let's get started? (y/n)"
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
+    echo "Let's get started? (y/n)"
+    old_stty_cfg=$(stty -g)
+    stty raw -echo
+    answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+    stty $old_stty_cfg
+    if echo "$answer" | grep -iq "^y" ;then
+        echo
+    else
+        echo "Quitting, nothing was changed."
+        exit 0
+    fi
+
+
+    check_for_software zsh
     echo
-else
-    echo "Quitting, nothing was changed."
-    exit 0
-fi
+    check_for_software vim
+    echo
+    echo -n "Would you like to install Neovim(its works only for Linux (Debian destr))? (y/n) "
+    old_stty_cfg=$(stty -g)
+    stty raw -echo
+    answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+    stty $old_stty_cfg
+    if echo "$answer" | grep -iq "^y" ;then
+        if ! [ -x "$(command -v nvim)" ]; then
+            echo "Prepare SUDO password"
+            sudo apt-get install software-properties-common -y
+            sudo apt-get install python-software-properties -y
+            sudo add-apt-repository ppa:neovim-ppa/stable
+            sudo apt-get update
+            sudo apt-get install neovim -y
+            sudo apt-get install python-dev python-pip python3-dev python3-pip -y
+            ERROR_CODE=$?
+            if [ ${ERROR_CODE} -gt 0 ]; then
+                sudo apt-get install python-dev python-pip python3-dev -y
+                sudo apt-get install python3-setuptools -y
+                sudo easy_install3 pip
+            fi
+        else
+            echo "Neovim is installed"
+        fi
+    else
+        echo -e "Neovim is not installed"
+    fi
+    echo
+    check_for_software xclip
+    echo
+    check_for_software tmux
+    echo
+    check_for_software emacs
+    echo
 
+    check_default_shell
+    echo
 
-check_for_software zsh
-echo
-check_for_software vim
-echo
-check_for_software neovim
-echo
-check_for_software xclip
-echo
-check_for_software tmux
-echo
-check_for_software emacs
-echo
+    echo -n "Would you like to backup your current dotfiles? (y/n) "
+    old_stty_cfg=$(stty -g)
+    stty raw -echo
+    answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+    stty $old_stty_cfg
+    if echo "$answer" | grep -iq "^y" ;then
+        mv ~/.zshrc ~/.zshrc.old
+        mv ~/.tmux.conf ~/.tmux.conf.old
+        mv ~/.vimrc ~/.vimrc.old
+        mv ~/.config/nvim ~/.config/nvim.old
+        mv ~/.vim ~/.vim.old
+        mv ~/.emacs.d ~/.emacs.d.old
+        mv ~/.emacs ~/.emacs.old
+        mv ~/.spacemacs ~/.spacemacs.old
+    else
+        echo -e "\nNot backing up old dotfiles."
+    fi
 
-check_default_shell
+    printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
+    printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
+    printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+    printf "so $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
 
-echo
-echo -n "Would you like to backup your current dotfiles? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-    mv ~/.zshrc ~/.zshrc.old
-    mv ~/.tmux.conf ~/.tmux.conf.old
-    mv ~/.vimrc ~/.vimrc.old
-    mv ~/.config/nvim ~/.config/nvim.old
-    mv ~/.vim ~/.vim.old
-    mv ~/.emacs.d ~/.emacs.d.old
-    mv ~/.emacs ~/.emacs.old
-    mv ~/.spacemacs ~/.spacemacs.old
-else
-    echo -e "\nNot backing up old dotfiles."
-fi
+    printf '(setq spacemacs-start-directory "~/dotfiles/spacemacs/spacemacs.d/")\n(load-file (concat spacemacs-start-directory "init.el"))' > ~/.emacs.d/init.el
+    ln -s ~/dotfiles/spacemacs/.spacemacs ~/.spacemacs
 
-printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
-printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
-printf "so $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
+    # Install Spacemacs
+    # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+    # for install emacs lanch it: emacs --insecure
 
-printf '(setq spacemacs-start-directory "~/dotfiles/spacemacs/spacemacs.d/")\n(load-file (concat spacemacs-start-directory "init.el"))' > ~/.emacs.d/init.el
-ln -s ~/dotfiles/spacemacs/.spacemacs ~/.spacemacs
+    echo
+    echo "Please log out and log back in for default shell to be initialized."
+}
 
-# Install Spacemacs
-# git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-# for install emacs lanch it: emacs --insecure
+# function checkLastCommandIsSuccessful {
+#     ERROR_CODE=$?
+#     if [ ${ERROR_CODE} -gt 0 ]; then
+#         errorMessage "Script failed, error code $ERROR_CODE, exiting"
+#         exit 1
+#     fi
+# }
 
-echo
-echo "Please log out and log back in for default shell to be initialized."
+main
