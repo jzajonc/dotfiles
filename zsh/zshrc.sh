@@ -38,7 +38,7 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 
 source ~/dotfiles/zsh/plugins/antigen.zsh
 
-if [[ ! -d ~/.antigen ]]; then
+if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
 	# Load the oh-my-zsh's library.
 	antigen use oh-my-zsh
 
