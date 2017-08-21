@@ -76,6 +76,7 @@ function main() {
     echo
     check_for_software vim
     echo
+
     echo -n "Would you like to install Neovim(its works only for Linux (Debian destr))? (y/n) "
     old_stty_cfg=$(stty -g)
     stty raw -echo
@@ -100,6 +101,7 @@ function main() {
         echo -e "Neovim is not installed"
     fi
     echo
+
     check_for_software xclip
     echo
     check_for_software tmux
