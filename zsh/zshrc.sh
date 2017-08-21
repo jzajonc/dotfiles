@@ -36,9 +36,10 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 # For vim mappings:
 	stty -ixon
 
-source ~/dotfiles/zsh/plugins/antigen.zsh
 
 if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
+	source ~/dotfiles/zsh/plugins/antigen.zsh
+
 	# Load the oh-my-zsh's library.
 	antigen use oh-my-zsh
 
@@ -56,8 +57,8 @@ if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
 	antigen bundle zsh-users/zsh-autosuggestions
 
 	# Load the theme.
+	# antigen theme robbyrussell
 	# antigen theme refined
-	antigen theme robbyrussell
 
 	# Tell Antigen that you're done.
 	antigen apply
@@ -72,6 +73,7 @@ source ~/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/keybindings.sh
+source ~/dotfiles/zsh/prompt.sh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -86,8 +88,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	zle -N down-line-or-beginning-search
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
-
-source ~/dotfiles/zsh/prompt.sh
 
 export ANDROID_HOME=/home/qadc/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
