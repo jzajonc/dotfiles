@@ -99,7 +99,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 TERM=screen-256color
 
 
-plugins=( virtualenv virtualenvwrapper oh-my-zsh-virtualenv-prompt )
+plugins=( "virtualenv" "virtualenvwrapper" "oh-my-zsh-virtualenv-prompt" "git" "heroku" "pip" "lein" "command-not-found" )
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/qadc/.sdkman"
