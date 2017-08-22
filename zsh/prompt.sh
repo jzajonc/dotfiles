@@ -38,11 +38,8 @@ set_prompt() {
 
 	# Virtual env promt
 	if [[ ! -z $VIRTUAL_ENV ]]; then
-			# echo "prezend"
 			PS1+=', '
 			PS1+="%{$fg_bold[red]%}($(basename $VIRTUAL_ENV))%{$reset_color%}"
-	# else
-			# echo "not prezend"
 	fi
 
 	# Sudo: https://superuser.com/questions/195781/sudo-is-there-a-command-to-check-if-i-have-sudo-and-or-how-much-time-is-left

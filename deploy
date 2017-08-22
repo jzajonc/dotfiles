@@ -106,8 +106,6 @@ function main() {
     echo
     check_for_software tmux
     echo
-    check_for_software emacs
-    echo
 
     check_default_shell
     echo
@@ -123,15 +121,8 @@ function main() {
         mv ~/.vimrc ~/.vimrc.old
         mv ~/.config/nvim ~/.config/nvim.old
         mv ~/.vim ~/.vim.old
-        mv ~/.emacs.d ~/.emacs.d.old
-        mv ~/.emacs ~/.emacs.old
-        mv ~/.spacemacs ~/.spacemacs.old
     else
         echo -e "\nNot backing up old dotfiles."
-    fi
-
-    if [[ ! -d ~/.emacs.d ]] ; then
-        mkdir ~/.emacs.d
     fi
 
     if [[ ! -d ~/.config/nvim ]] ; then
@@ -142,9 +133,6 @@ function main() {
     printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
     printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
     printf "so $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
-
-    printf '(setq spacemacs-start-directory "~/dotfiles/spacemacs/spacemacs.d/")\n(load-file (concat spacemacs-start-directory "init.el"))' > ~/.emacs.d/init.el
-    ln -s ~/dotfiles/spacemacs/.spacemacs ~/.spacemacs
 
     # Install Spacemacs
     # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

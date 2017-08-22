@@ -1,44 +1,65 @@
+TERM=screen-256color
+
 # Vars
-	HISTFILE=~/.zsh_history
-	SAVEHIST=1000000
-	setopt inc_append_history # To save every command before it is executed
-	setopt share_history # setopt inc_append_history
+HISTFILE=~/.zsh_history
+SAVEHIST=1000000
+setopt inc_append_history # To save every command before it is executed
+setopt share_history # setopt inc_append_history
 
 # Aliases
-	# alias v="vim -p"
-    alias stopvpn="sudo service openvpn stop"
-    alias startvpn="sudo service openvpn start"
-    alias statusvpn="sudo service openvpn status"
-    alias vim="vim"
-    alias vi="vim"
-    alias v="vim"
-    alias nvim="nvim"
-    alias nvi="nvim"
-    alias nv="nvim"
-    alias cls="clear"
-    alias tm="tmux"
-    alias la="ls -a -l --sort=extension -v"
-    alias _="sudo"
+# alias v="vim -p"
+alias stopvpn="sudo service openvpn stop"
+alias startvpn="sudo service openvpn start"
+alias statusvpn="sudo service openvpn status"
+alias vim="vim"
+alias vi="vim"
+alias v="vim"
+alias nvim="nvim"
+alias nvi="nvim"
+alias nv="nvim"
+alias cls="clear"
+alias tm="tmux"
+alias la="ls -a -l --sort=extension -v"
+alias _="sudo"
 
 # Settings
-	export VISUAL=vim
+export VISUAL=vim
+# export ZSH=$HOME/.antigen/bundles/robbyrussell/oh-my-zsh
+export ANDROID_HOME=/home/qadc/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export SDKMAN_DIR="/home/qadc/.sdkman"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-source ~/dotfiles/zsh/plugins/fixls.zsh
+# source $ZSH/oh-my-zsh.sh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
+# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
+# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
+source $HOME/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/dotfiles/zsh/plugins/vi-mode.plugin.zsh
+source $HOME/dotfiles/zsh/plugins/fixls.zsh
+source $HOME/dotfiles/zsh/keybindings.sh
+source $HOME/dotfiles/zsh/prompt.sh
 
 #Functions
-	# Custom cd
-	c() {
-		cd $1;
-		ls;
-	}
-	alias cd="c"
+# Custom cd
+c() {
+	cd $1;
+	ls;
+}
+alias cd="c"
 
 # For vim mappings:
-	stty -ixon
+stty -ixon
 
+plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting vi-mode virtualenv virtualenvwrapper oh-my-zsh-virtualenv-prompt heroku lein zsh-autosuggestions)
 
 if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
-	source ~/dotfiles/zsh/plugins/antigen.zsh
+	source $HOME/dotfiles/zsh/plugins/antigen.zsh
 
 	# Load the oh-my-zsh's library.
 	antigen use oh-my-zsh
@@ -64,17 +85,6 @@ if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
 	antigen apply
 fi
 
-source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
-source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh
-source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
-# source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
-# source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
-source ~/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
-source ~/dotfiles/zsh/keybindings.sh
-source ~/dotfiles/zsh/prompt.sh
-
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -89,38 +99,5 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-export ANDROID_HOME=/home/qadc/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-TERM=screen-256color
-
-
-plugins=( "virtualenv" "virtualenvwrapper" "oh-my-zsh-virtualenv-prompt" "git" "heroku" "pip" "lein" "command-not-found" )
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/qadc/.sdkman"
 [[ -s "/home/qadc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/qadc/.sdkman/bin/sdkman-init.sh"
-
-
-# My settings for start tmux
-# tmux-new() {
-#   if [[ -n $TMUX ]]; then
-#     tmux switch-client -t "$(TMUX= tmux -S "${TMUX%,*,*}" new-session -dP "$@")"
-#   else
-#     tmux new-session "$@"
-#   fi
-# }
-
-# # example usage:
-# tmux-new -s new > /dev/null 2>&1
-
-# # Run tmux if exists
-# if command -v tmux>/dev/null; then
-#   [ -z $TMUX ] && exec tmux
-# else
-#   echo "tmux not installed. Run ./deploy to configure dependencies"
-# fi
