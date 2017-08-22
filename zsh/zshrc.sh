@@ -47,11 +47,15 @@ source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/c
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/dirhistory/dirhistory.plugin.zsh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip/pip.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/python/python.plugin.zsh
+# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/python/python.plugin.zsh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd/wd.plugin.zsh
 # source $HOME/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein/lein.plugin.zsh
+source $HOME/dotfiles/zsh/plugins/pytest.plugin.zsh
+source $HOME/dotfiles/zsh/plugins/python.completion.zsh
+source $HOME/dotfiles/zsh/plugins/python.plugin.zsh
+source $HOME/dotfiles/zsh/plugins/zle_vi_visual.zsh
 source $HOME/dotfiles/zsh/plugins/fixls.zsh
 source $HOME/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/prompt.sh
