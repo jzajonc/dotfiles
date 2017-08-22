@@ -21,6 +21,8 @@ alias cls="clear"
 alias tm="tmux"
 alias la="ls -a -l --sort=extension -v"
 alias _="sudo"
+alias d-clogs="docker-compose logs --follow"
+alias d-c="docker-compose"
 
 # Settings
 export VISUAL=vim
@@ -40,7 +42,16 @@ source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
 # source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
 source $HOME/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/dotfiles/zsh/plugins/vi-mode.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/dirhistory/dirhistory.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip/pip.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/python/python.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd/wd.plugin.zsh
+# source $HOME/dotfiles/zsh/plugins/vi-mode.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein/lein.plugin.zsh
 source $HOME/dotfiles/zsh/plugins/fixls.zsh
 source $HOME/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/prompt.sh
@@ -56,7 +67,7 @@ alias cd="c"
 # For vim mappings:
 stty -ixon
 
-plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting vi-mode virtualenv virtualenvwrapper oh-my-zsh-virtualenv-prompt heroku lein zsh-autosuggestions)
+plugins=()
 
 if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
 	source $HOME/dotfiles/zsh/plugins/antigen.zsh
