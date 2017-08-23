@@ -21,8 +21,10 @@ alias cls="clear"
 alias tm="tmux"
 alias la="ls -a -l --sort=extension -v"
 alias _="sudo"
-alias d-clogs="docker-compose logs --follow"
-alias d-c="docker-compose"
+# alias d-clogs="docker-compose logs --follow"
+# alias d-c="docker-compose"
+alias :q="exit"
+alias :Q="exit"
 
 # Settings
 export VISUAL=vim
