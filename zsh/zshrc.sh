@@ -25,10 +25,12 @@ alias _="sudo"
 # alias d-c="docker-compose"
 alias :q="exit"
 alias :Q="exit"
+alias mux="tmuxinator"
 
 # Settings
 export VISUAL=vim
 # export ZSH=$HOME/.antigen/bundles/robbyrussell/oh-my-zsh
+export EDITOR=nvim
 export ANDROID_HOME=/home/qadc/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
