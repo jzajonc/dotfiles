@@ -110,6 +110,11 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'klen/rope-vim'
 Plug 'ervandew/supertab'
 Plug 'tmhedberg/SimpylFold'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/lh-dev'
+Plug 'LucHermitte/lh-brackets'
+" And a lh-dev dependency, not required by lh-brackets
+Plug 'LucHermitte/lh-tags'
 
 
 if isdirectory('/usr/local/opt/fzf')
