@@ -560,6 +560,15 @@ nnoremap <leader>sc :CloseSession<CR>
 " nnoremap <Tab> gt
 " nnoremap <S-Tab> gT
 " nnoremap <silent> <S-t> :tabnew<CR>
+" set switchbuf=usetab
+" nnoremap <F8> :sbnext<CR>
+" nnoremap <S-F8> :sbprevious<CR>
+" nnoremap <C-Left> :tabprevious<CR>
+" nnoremap <C-Right> :tabnext<CR>
+" nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+" nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+" let notabs = 0
+" nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -1085,8 +1094,10 @@ endfunction
 
 " Toggle diff view on the left, center, or right windows
 nmap <silent> <leader>dl :call DiffToggle(1)<cr>
-nmap <silent> <leader>dc :call DiffToggle(2)<cr>
-nmap <silent> <leader>dr :call DiffToggle(3)<cr>
+nmap <silent> <leader>dc :call DiffToggle(3)<cr>
+nmap <silent> <leader>dr :call DiffToggle(2)<cr>
+nmap <silent> <leader>dft :diffthis<cr>
+nmap <silent> <leader>dfu :diffupdate<cr>
 
 "=====================================================
 
@@ -1196,7 +1207,7 @@ let g:snippets_dir = "~/.vim/plugged/vim-snippets/snippets"
 nnoremap <F7> :Unite buffer<CR> " browse a list of the currently opened buffers
 
 " TaskList settings
-map <F8> :TaskList<CR> " show pending tasks list
+" map <F8> :TaskList<CR> " show pending tasks list
 
 " ConqueTerm
 " nnoremap <F9> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
