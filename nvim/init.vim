@@ -117,7 +117,7 @@ Plug 'LucHermitte/lh-dev'
 Plug 'LucHermitte/lh-brackets'
 " And a lh-dev dependency, not required by lh-brackets
 Plug 'LucHermitte/lh-tags'
-
+Plug 'thaerkh/vim-workspace'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -1240,3 +1240,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Vison
 autocmd FileType json setlocal completeopt+=menu,preview
+
+" Workspace
+nnoremap <leader>S :ToggleWorkspace<CR>
