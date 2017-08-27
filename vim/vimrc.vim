@@ -31,6 +31,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+Plug 'shougo/neocomplete.vim'              " Next generation completion framework after neocomplcache
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -119,6 +120,12 @@ Plug 'thaerkh/vim-workspace'
 " Plug 'hsitz/VimOrganizer'                   " VimOrganizer is partly a clone of Emacs' Org-mode, and partly a front end to Org-mode itself. Do Org in Vim. http://vimeo.com/31531308
 " Plug 'dhruvasagar/vim-dotoo'                  " Org-mode like task logging & time tracking in Vim
 Plug 'jceb/vim-orgmode'                       " Text outlining and task management for Vim based on Emacs' Org-Mode
+Plug 'vim-scripts/ZoomWin'                    " Zoom in/out  of windows (toggle between one window and multi-window)
+Plug 'vim-scripts/zoom.vim'                   " control gui font size with "+" or "-" keys.
+Plug 'christoomey/vim-tmux-navigator'         " Seamless navigation between tmux panes and vim splits
+Plug 'editorconfig/editorconfig-vim'          " EditorConfig plugin for Vim
+Plug 'benmills/vimux'                         " vim plugin to interact with tmux
+Plug 'tpope/vim-unimpaired'                   " unimpaired.vim: pairs of handy bracket mappings
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -369,12 +376,14 @@ set number
 " syntax enable
 " set background=dark
 " colorscheme material-theme
-set background=dark
-colorscheme hybrid_reverse
+" set background=dark
+" colorscheme hybrid_reverse
 " syntax enable
 " colorscheme monokai
 " let g:monokai_term_italic = 1
 " let g:monokai_gui_italic = 1
+colorscheme molokai
+let g:molokai_original = 1
 "*****************************************************************************
 
 " let no_buffers_menu=1
@@ -386,32 +395,32 @@ set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 " set gfn=Monospace\ 10
-set gfn=Hack\ 10
+set gfn=Hack\ 12
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
+" if has("gui_running")
+"   if has("gui_mac") || has("gui_macvim")
+"     set guifont=Menlo:h12
+"     set transparency=7
+"   endif
+" else
+"   let g:CSApprox_loaded = 1
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
+"   " IndentLine
+"   let g:indentLine_enabled = 1
+"   let g:indentLine_concealcursor = 0
+"   let g:indentLine_char = '┆'
+"   let g:indentLine_faster = 1
 
 
-  " if $COLORTERM == 'gnome-terminal'
-  "   set term=gnome-256color
-  " else
-  "   if $TERM == 'xterm'
-  "     set term=xterm-256color
-  "   endif
-  " endif
+"   " if $COLORTERM == 'gnome-terminal'
+"   "   set term=gnome-256color
+"   " else
+"   "   if $TERM == 'xterm'
+"   "     set term=xterm-256color
+"   "   endif
+"   " endif
 
-endif
+" endif
 
 
 if &term =~ '256color'
@@ -1195,8 +1204,8 @@ let g:pymode_run = 0
 let g:pymode_options_colorcolumn = 0
 if has("gui_running")
     let g:airline_powerline_fonts = 1
-" else
-"     let g:airline_powerline_fonts = 0
+else
+    let g:airline_powerline_fonts = 0
 endif
 
 " python-mode
