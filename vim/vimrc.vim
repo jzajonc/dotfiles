@@ -126,6 +126,8 @@ Plug 'christoomey/vim-tmux-navigator'         " Seamless navigation between tmux
 Plug 'editorconfig/editorconfig-vim'          " EditorConfig plugin for Vim
 Plug 'benmills/vimux'                         " vim plugin to interact with tmux
 Plug 'tpope/vim-unimpaired'                   " unimpaired.vim: pairs of handy bracket mappings
+Plug 'wincent/command-t'                      " Fast file navigation for VIM
+Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw to create a delicious salad dressing
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -376,14 +378,14 @@ set number
 " syntax enable
 " set background=dark
 " colorscheme material-theme
-" set background=dark
-" colorscheme hybrid_reverse
+set background=dark
+colorscheme hybrid_reverse
 " syntax enable
 " colorscheme monokai
 " let g:monokai_term_italic = 1
 " let g:monokai_gui_italic = 1
-colorscheme molokai
-let g:molokai_original = 1
+" colorscheme molokai
+" let g:molokai_original = 1
 "*****************************************************************************
 
 " let no_buffers_menu=1
