@@ -128,6 +128,7 @@ Plug 'benmills/vimux'                         " vim plugin to interact with tmux
 Plug 'tpope/vim-unimpaired'                   " unimpaired.vim: pairs of handy bracket mappings
 Plug 'wincent/command-t'                      " Fast file navigation for VIM
 Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw to create a delicious salad dressing
+" Plug 'tpope/vim-projectionist'
 
 
 if isdirectory('/usr/local/opt/fzf')
