@@ -118,6 +118,10 @@ Plug 'LucHermitte/lh-brackets'
 " And a lh-dev dependency, not required by lh-brackets
 Plug 'LucHermitte/lh-tags'
 Plug 'thaerkh/vim-workspace'
+" Plug 'hsitz/VimOrganizer'                   " VimOrganizer is partly a clone of Emacs' Org-mode, and partly a front end to Org-mode itself. Do Org in Vim. http://vimeo.com/31531308
+" Plug 'dhruvasagar/vim-dotoo'                  " Org-mode like task logging & time tracking in Vim
+Plug 'jceb/vim-orgmode'                       " Text outlining and task management for Vim based on Emacs' Org-Mode
+
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
