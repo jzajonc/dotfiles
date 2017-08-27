@@ -107,7 +107,7 @@ Plug 'nelstrom/vim-markdown-preview'
 " Plug 'nvie/vim-flake8'
 " Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'klen/rope-vim'
+" Plug 'klen/rope-vim'
 Plug 'ervandew/supertab'
 Plug 'tmhedberg/SimpylFold'
 Plug 'LucHermitte/lh-vim-lib'
@@ -258,7 +258,7 @@ Plug 'Coacher/vim-virtualenv'         " Better Python virtual environments suppo
 Plug 'janko-m/vim-test'               " A Vim wrapper for running tests on different granularities.
 Plug 'alfredodeza/pytest.vim'         " A simple way of running your tests (with py.test) from within VIM.
 Plug 'heavenshell/vim-pydocstring'    " Generate Python docstring to your Python script file.
-Plug 'yhat/vim-docstring'             " Fold your Python docstrings
+" Plug 'yhat/vim-docstring'             " Fold your Python docstrings
 
 
 " ruby
