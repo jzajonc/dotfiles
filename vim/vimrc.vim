@@ -878,7 +878,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
 \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_python_flake8_args='--ignore=E501,E121,E128,E711,E301,E261,E241,E124,E126,E721
+let g:syntastic_python_flake8_args='--ignore=W391,E501,E121,E128,E711,E301,E261,E241,E124,E126,E721
 \ --max-line-length=119'
 
 
@@ -1120,6 +1120,7 @@ nmap <silent> <leader>dc :call DiffToggle(3)<cr>
 nmap <silent> <leader>dr :call DiffToggle(2)<cr>
 nmap <silent> <leader>dft :diffthis<cr>
 nmap <silent> <leader>dfu :diffupdate<cr>
+nmap <silent> <leader>dfo :diffoff<cr>
 
 "=====================================================
 
