@@ -129,6 +129,7 @@ Plug 'tpope/vim-unimpaired'                   " unimpaired.vim: pairs of handy b
 Plug 'wincent/command-t'                      " Fast file navigation for VIM
 Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw to create a delicious salad dressing
 " Plug 'tpope/vim-projectionist'
+Plug 'wincent/terminus'                       " Enhanced terminal integration for Vim
 
 
 if isdirectory('/usr/local/opt/fzf')
