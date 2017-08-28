@@ -37,6 +37,8 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export SDKMAN_DIR="/home/qadc/.sdkman"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export NVIM_PYTHON_LOG_FILE=/tmp/log
+export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # source $ZSH/oh-my-zsh.sh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
