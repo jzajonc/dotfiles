@@ -492,7 +492,7 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
+" nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
 " grep.vim
@@ -719,7 +719,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
-noremap <f11> :w<CR>:SyntasticCheck<CR>
+noremap <F2> :w<CR>:SyntasticCheck<CR>
 
 
 
@@ -857,7 +857,8 @@ let g:jedi#smart_auto_mappings = 1  " 0
 let g:jedi#popup_select_first = 0   " Disable first select from auto-complete
 
 " syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
+" let g:syntastic_python_checkers=['python', 'flake8']
+" let g:syntastic_python_checker_args='--ignore=E501'
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
@@ -877,7 +878,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
 \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721
+let g:syntastic_python_flake8_args='--ignore=E501,E121,E128,E711,E301,E261,E241,E124,E126,E721
 \ --max-line-length=119'
 
 
