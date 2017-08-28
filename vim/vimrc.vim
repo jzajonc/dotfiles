@@ -54,15 +54,15 @@ Plug 'ekalinin/Dockerfile.vim'             " Vim syntax file & snippets for Dock
 Plug 'terryma/vim-multiple-cursors'        " True Sublime Text style multiple selections for Vim
 Plug 'elzr/vim-json'                       " Distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
 Plug 'svermeulen/vim-easyclip'             " EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of making using the clipboard in Vim simpler and more intuitive without losing any of its power.
-Plug 'WolfgangMehner/awk-support'          " This repository hosts the latest development versions of various Vim plug-ins. Currently maintained by Wolfgang Mehner
+" Plug 'WolfgangMehner/awk-support'          " This repository hosts the latest development versions of various Vim plug-ins. Currently maintained by Wolfgang Mehner
 Plug 'WolfgangMehner/bash-support'
-Plug 'WolfgangMehner/c-support'
-Plug 'WolfgangMehner/latex-support'
+" Plug 'WolfgangMehner/c-support'
+" Plug 'WolfgangMehner/latex-support'
 Plug 'WolfgangMehner/lua-support'
-Plug 'WolfgangMehner/matlab-support'
+" Plug 'WolfgangMehner/matlab-support'
 Plug 'WolfgangMehner/perl-support'
 Plug 'WolfgangMehner/vim-support'
-Plug 'WolfgangMehner/git-support'
+" Plug 'WolfgangMehner/git-support'
 Plug 'jmcneal/verilog-support'
 Plug 'tpope/vim-repeat'                    " enable repeating supported plugin maps with dot(.)
 Plug 'kien/ctrlp.vim'                      " Ctrl+P choose file
