@@ -274,7 +274,7 @@ Plug 'Coacher/vim-virtualenv'         " Better Python virtual environments suppo
 Plug 'janko-m/vim-test'               " A Vim wrapper for running tests on different granularities.
 Plug 'alfredodeza/pytest.vim'         " A simple way of running your tests (with py.test) from within VIM.
 Plug 'heavenshell/vim-pydocstring'    " Generate Python docstring to your Python script file.
-Plug 'yhat/vim-docstring'             " Fold your Python docstrings
+" Plug 'yhat/vim-docstring'             " Fold your Python docstrings
 
 
 " ruby
