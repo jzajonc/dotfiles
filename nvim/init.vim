@@ -86,7 +86,7 @@ Plug 'yukunlin/auto-pairs'                 " Vim plugin, insert or delete bracke
 Plug 'weierophinney/argumentrewrap'        " Vim plugin to automatically rewrap argument lists to multiple lines
 " Plug 'joonty/vdebug'                       " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 Plug 'Quramy/vison'                        " A Vim plugin for writing JSON with JSON Schema
-" Plug 'Valloric/YouCompleteMe'              " A code-completion engine for Vim
+Plug 'Valloric/YouCompleteMe'              " A code-completion engine for Vim
 Plug 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode for vim
 Plug 'tmux-plugins/vim-tmux'               " vim plugin for tmux.conf
 Plug 'Rykka/riv.vim'                       " Take Notes in rst.
@@ -265,7 +265,7 @@ Plug 'shawncplus/phpcomplete.vim'          " Improved PHP omnicompletion
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 " Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
 " Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
-Plug 'dc-avasilev/python-mode'        " My fixes
+" Plug 'dc-avasilev/python-mode'        " My fixes
 Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
 Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 indent
@@ -624,10 +624,10 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
 let g:syntastic_error_symbol='✗'
@@ -1179,47 +1179,47 @@ let g:deoplete#enable_at_startup = 1
 " ]] Jump on next class or function (normal, visual, operator modes)
 " [M Jump on previous class or method (normal, visual, operator modes)
 " ]M Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 0
+" let g:pymode_rope = 0
 
-" Documentation
-let g:pymode_doc = 0
-let g:pymode_doc_key = 'K'
-"Linting
-let g:pymode_lint = 0
-let g:pymode_lint_checkers = ['pylint', 'pep8']
-let g:pymode_lint_cwindow = 1
-let g:pymode_lint_ignore="E501,W601,W391,C0110,C0111"
-let g:pymode_lint_write = 0
+" " Documentation
+" let g:pymode_doc = 0
+" let g:pymode_doc_key = 'K'
+" "Linting
+" let g:pymode_lint = 0
+" let g:pymode_lint_checkers = ['pylint', 'pep8']
+" let g:pymode_lint_cwindow = 1
+" let g:pymode_lint_ignore="E501,W601,W391,C0110,C0111"
+" let g:pymode_lint_write = 0
 
-" Support virtualenv
-let g:pymode_virtualenv = 1
+" " Support virtualenv
+" let g:pymode_virtualenv = 1
 
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 0
-let g:pymode_breakpoint_key = '<leader>m'
+" " Enable breakpoints plugin
+" let g:pymode_breakpoint = 0
+" let g:pymode_breakpoint_key = '<leader>m'
 
-" Syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
+" " Syntax highlighting
+" let g:pymode_syntax = 1
+" let g:pymode_syntax_all = 1
+" let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+" let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" Don't autofold code
-let g:pymode_folding = 0
+" " Don't autofold code
+" let g:pymode_folding = 0
 
-" Get possibility to run Python code
-let g:pymode_run = 0
+" " Get possibility to run Python code
+" let g:pymode_run = 0
 
-" Other options
-let g:pymode_options_colorcolumn = 0
-if has("gui_running")
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
+" " Other options
+" let g:pymode_options_colorcolumn = 0
+" if has("gui_running")
+"     let g:airline_powerline_fonts = 1
+" else
+"     let g:airline_powerline_fonts = 0
+" endif
 
-" python-mode
-let g:pymode_python = 'python3'
+" " python-mode
+" let g:pymode_python = 'python3'
 
 " My settings for hidden symbols
 set list listchars=tab:→\ ,trail:·,nbsp:·,precedes:<,extends:>,eol:¶
@@ -1265,3 +1265,134 @@ nnoremap <leader>S :ToggleWorkspace<CR>
 
 " Pydocstring remap
 nmap <silent> <C-_> <Plug>(pydocstring)
+
+" YouCompleteMe
+let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+
+function! Setup_mappings()
+  " Overwrite the mappings that UltiSnips sets up during expansion.
+  execute 'inoremap <buffer> <silent> ' . g:UltiSnipsJumpForwardTrigger .
+        \ ' <C-R>=Expand_or_jump("N")<CR>'
+  execute 'snoremap <buffer> <silent> ' . g:UltiSnipsJumpForwardTrigger .
+        \ ' <Esc>:call Expand_or_jump("N")<CR>'
+  execute 'inoremap <buffer> <silent> ' . g:UltiSnipsJumpBackwardTrigger .
+        \ ' <C-R>=Expand_or_jump("P")<CR>'
+  execute 'snoremap <buffer> <silent> ' . g:UltiSnipsJumpBackwardTrigger .
+        \ ' <Esc>:call Expand_or_jump("P")<CR>'
+
+  " One additional mapping of our own: accept completion with <CR>.
+  imap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+  smap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+  let s:expansion_active = 1
+endfunction
+
+function! Teardown_mappings()
+  silent! iunmap <expr> <buffer> <CR>
+  silent! sunmap <expr> <buffer> <CR>
+
+  let s:expansion_active = 0
+endfunction
+
+let g:ulti_jump_backwards_res = 0
+let g:ulti_jump_forwards_res = 0
+let g:ulti_expand_res = 0
+
+function! Expand_or_jump(direction)
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    " No expansion occurred.
+    if pumvisible()
+      " Pop-up is visible, let's select the next (or previous) completion.
+      if a:direction == 'N'
+        return "\<C-N>"
+      else
+        return "\<C-P>"
+      endif
+    else
+      if s:expansion_active
+        if a:direction == 'N'
+          call UltiSnips#JumpForwards()
+          if g:ulti_jump_forwards_res == 0
+            " We did not jump forwards.
+            return "\<Tab>"
+          endif
+        else
+          call UltiSnips#JumpBackwards()
+        endif
+      else
+        if a:direction == 'N'
+          return "\<Tab>"
+        endif
+      endif
+    endif
+  endif
+
+  " No popup is visible, a snippet was expanded, or we jumped, or we failed to
+  " jump backwards, so nothing to do.
+  return ''
+endfunction
+
+" YouCompleteMe and UltiSnips compatibility.
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
+" Prevent UltiSnips from removing our carefully-crafted mappings.
+let g:UltiSnipsMappingsToIgnore = ['autocomplete']
+
+if has('autocmd')
+  augroup WincentAutocomplete
+    autocmd!
+    autocmd! User UltiSnipsEnterFirstSnippet
+    autocmd User UltiSnipsEnterFirstSnippet call Setup_mappings()
+    autocmd! User UltiSnipsExitLastSnippet
+    autocmd User UltiSnipsExitLastSnippet call Teardown_mappings()
+  augroup END
+endif
+
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_accept_completion = ['<C-y>']
+
+" Additional UltiSnips config.
+let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
+
+" Additional YouCompleteMe config.
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+
+" Disable unhelpful semantic completions.
+let g:ycm_filetype_specific_completion_to_disable = {
+      \   'c': 1,
+      \   'gitcommit': 1,
+      \   'haskell': 1,
+      \   'javascript': 1,
+      \   'ruby': 1
+      \ }
+
+let g:ycm_semantic_triggers = {
+      \   'haskell': [
+      \     '.',
+      \     '(',
+      \     ',',
+      \     ', '
+      \   ]
+      \ }
+
+" Same as default, but with "markdown" and "text" removed.
+let g:ycm_filetype_blacklist = {
+      \   'notes': 1,
+      \   'unite': 1,
+      \   'tagbar': 1,
+      \   'pandoc': 1,
+      \   'qf': 1,
+      \   'vimwiki': 1,
+      \   'infolog': 1,
+      \   'mail': 1
+      \ }
+
+let s:expansion_active = 0
