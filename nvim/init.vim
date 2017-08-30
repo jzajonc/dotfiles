@@ -132,6 +132,8 @@ Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw 
 " Plug 'tpope/vim-projectionist'
 Plug 'wincent/terminus'                       " Enhanced terminal integration for Vim
 Plug 'tpope/vim-eunuch'                       " Vim sugar for the UNIX shell commands that need it the most
+Plug 'phongnh/vim-copypath'                   " Vim plugin to copy current editing file path to clipboard (if support)
+Plug 'vim-scripts/copypath.vim'
 
 
 if isdirectory('/usr/local/opt/fzf')
