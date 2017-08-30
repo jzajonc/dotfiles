@@ -109,7 +109,7 @@ Plug 'nelstrom/vim-markdown-preview'
 " Plug 'nvie/vim-flake8'
 " Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'klen/rope-vim'
+" Plug 'klen/rope-vim'
 Plug 'ervandew/supertab'
 Plug 'tmhedberg/SimpylFold'
 Plug 'LucHermitte/lh-vim-lib'
@@ -859,6 +859,10 @@ let g:jedi#show_call_signatures = "1"  " 0
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 1  " 0
 let g:jedi#popup_select_first = 0   " Disable first select from auto-complete
+
+if has("python3")
+  let g:jedi#force_py_version = 3
+endif
 
 " syntastic
 " let g:syntastic_python_checkers=['python', 'flake8']
