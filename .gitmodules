@@ -19,3 +19,6 @@
 [submodule "tmux/plugins/tmux-copycat"]
 	path = tmux/plugins/tmux-copycat
 	url = https://github.com/tmux-plugins/tmux-copycat
+[submodule "tmux/plugins/tmux-sidebar"]
+	path = tmux/plugins/tmux-sidebar
+	url = https://github.com/tmux-plugins/tmux-sidebar
