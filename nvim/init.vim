@@ -846,7 +846,7 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-jedi-vim
+" jedi-vim
 let g:jedi#popup_on_dot = 1  " 0
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
@@ -1226,7 +1226,7 @@ let g:deoplete#enable_at_startup = 1
 set list listchars=tab:→\ ,trail:·,nbsp:·,precedes:<,extends:>,eol:¶
 
 " SnipMate settings
-let g:snippets_dir = "~/.vim/plugged/vim-snippets/snippets"
+let g:snippets_dir = "~/.config/nvim/plugged/vim-snippets/snippets"
 
 " Unite settings
 nnoremap <F7> :Unite buffer<CR> " browse a list of the currently opened buffers
@@ -1397,3 +1397,36 @@ let g:ycm_filetype_blacklist = {
       \ }
 
 let s:expansion_active = 0
+
+
+" Copy file path or name
+
+" copy current file name (relative/absolute) to system clipboard
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  " relative path  (src/foo.txt)
+  nnoremap <leader>cf :let @*=expand("%")<CR>
+
+  " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>cF :let @*=expand("%:p")<CR>
+
+  " filename       (foo.txt)
+  nnoremap <leader>ct :let @*=expand("%:t")<CR>
+
+  " directory name (/something/src)
+  nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
+endif
+
+" copy current file name (relative/absolute) to system clipboard (Linux version)
+if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  " relative path (src/foo.txt)
+  nnoremap <leader>cf :let @+=expand("%")<CR>
+
+  " absolute path (/something/src/foo.txt)
+  nnoremap <leader>cF :let @+=expand("%:p")<CR>
+
+  " filename (foo.txt)
+  nnoremap <leader>ct :let @+=expand("%:t")<CR>
+
+  " directory name (/something/src)
+  nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
+endif
