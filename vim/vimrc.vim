@@ -263,7 +263,7 @@ Plug 'shawncplus/phpcomplete.vim'          " Improved PHP omnicompletion
 " python
 "" Python Bundle
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-" Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
+Plug 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
 " Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
 " Plug 'dc-avasilev/python-mode'        " My fixes
 Plug 'mitsuhiko/vim-jinja'            " Jinja support for vim
@@ -845,17 +845,17 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-" jedi-vim
-" let g:jedi#popup_on_dot = 1  " 0
-" let g:jedi#goto_assignments_command = "<leader>g"
-" let g:jedi#goto_definitions_command = "<leader>d"
-" let g:jedi#documentation_command = "K"
-" let g:jedi#usages_command = "<leader>n"
-" let g:jedi#rename_command = "<leader>r"
-" let g:jedi#show_call_signatures = "1"  " 0
-" let g:jedi#completions_command = "<C-Space>"
-" let g:jedi#smart_auto_mappings = 1  " 0
-" let g:jedi#popup_select_first = 0   " Disable first select from auto-complete
+jedi-vim
+let g:jedi#popup_on_dot = 1  " 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"  " 0
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#smart_auto_mappings = 1  " 0
+let g:jedi#popup_select_first = 0   " Disable first select from auto-complete
 
 " syntastic
 " let g:syntastic_python_checkers=['python', 'flake8']
