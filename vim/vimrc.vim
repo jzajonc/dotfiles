@@ -130,6 +130,7 @@ Plug 'wincent/command-t'                      " Fast file navigation for VIM
 Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw to create a delicious salad dressing
 " Plug 'tpope/vim-projectionist'
 Plug 'wincent/terminus'                       " Enhanced terminal integration for Vim
+Plug 'tpope/vim-eunuch'                       " Vim sugar for the UNIX shell commands that need it the most
 
 
 if isdirectory('/usr/local/opt/fzf')
