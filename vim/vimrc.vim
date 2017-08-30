@@ -127,6 +127,8 @@ Plug 'editorconfig/editorconfig-vim'          " EditorConfig plugin for Vim
 Plug 'benmills/vimux'                         " vim plugin to interact with tmux
 Plug 'tpope/vim-unimpaired'                   " unimpaired.vim: pairs of handy bracket mappings
 Plug 'wincent/command-t'                      " Fast file navigation for VIM
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }                      " Fast file navigation for VIM
 Plug 'tpope/vim-vinegar'                      " vinegar.vim: combine with netrw to create a delicious salad dressing
 " Plug 'tpope/vim-projectionist'
 Plug 'wincent/terminus'                       " Enhanced terminal integration for Vim
