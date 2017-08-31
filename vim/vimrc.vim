@@ -137,6 +137,8 @@ Plug 'tpope/vim-eunuch'                       " Vim sugar for the UNIX shell com
 Plug 'tpope/vim-sensible'                     " sensible.vim: Defaults everyone can agree on
 Plug 'phongnh/vim-copypath'                   " Vim plugin to copy current editing file path to clipboard (if support)
 Plug 'vim-scripts/copypath.vim'
+Plug 'wincent/scalpel'                        " Fast within-file word replacement for Vim
+Plug 'wincent/loupe'                          " Enhanced in-file search for Vim
 
 
 if isdirectory('/usr/local/opt/fzf')
