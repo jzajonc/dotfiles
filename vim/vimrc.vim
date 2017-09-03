@@ -1138,8 +1138,8 @@ nmap <silent> <leader>dfo :diffoff<cr>
 "=====================================================
 
 " Resize settings
-nnoremap <silent> <Leader>[ :vertical resize +2<CR>
-nnoremap <silent> <Leader>] :vertical resize -2<CR>
+nnoremap <silent> <Leader>> :vertical resize +2<CR>
+nnoremap <silent> <Leader>< :vertical resize -2<CR>
 nnoremap <silent> <Leader>+ :resize +2<CR>
 nnoremap <silent> <Leader>- :resize -2<CR>
 
