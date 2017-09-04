@@ -26,6 +26,8 @@ alias _="sudo"
 alias :q="exit"
 alias :Q="exit"
 alias mux="tmuxinator"
+alias emc="emacs -nw"
+alias em="emacs"
 
 # Settings
 export VISUAL=vim
