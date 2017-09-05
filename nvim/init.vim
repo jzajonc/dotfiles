@@ -142,6 +142,14 @@ Plug 'wincent/scalpel'                        " Fast within-file word replacemen
 Plug 'wincent/loupe'                          " Enhanced in-file search for Vim
 Plug 'maksimr/vim-jsbeautify'                 " vim plugin which formated javascript files by js-beautify
 Plug 'tpope/vim-jdaddy'                       " jdaddy.vim: JSON manipulation and pretty printing
+Plug 'vim-scripts/taglist.vim'                " Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+Plug 'qpkorr/vim-bufkill'
+Plug 'vim-scripts/indexer.tar.gz'             " indexing all files in project with ctags (can work as add-on for project.tar.gz)
+Plug 'vim-scripts/vimprj'                     " Plugin for managing options for different projects
+Plug 'rkintzi/vim-dfutil'                     " Very simple set of Vim functions that I use in multiple projects
+" Plug 'vim-scripts/exUtility'
+" Plug 'vim-scripts/ShowMarks'                  " Visually shows the location of marks.
+Plug 'LucHermitte/lh-tags'                    " ctags base updating, and browsing from vim
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -181,6 +189,7 @@ Plug 'tomasr/molokai'
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
+Plug 'hari-rangarajan/CCTree'
 
 
 " --- Clojure ---
