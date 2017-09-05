@@ -139,6 +139,8 @@ Plug 'phongnh/vim-copypath'                   " Vim plugin to copy current editi
 Plug 'vim-scripts/copypath.vim'
 Plug 'wincent/scalpel'                        " Fast within-file word replacement for Vim
 Plug 'wincent/loupe'                          " Enhanced in-file search for Vim
+Plug 'maksimr/vim-jsbeautify'                 " vim plugin which formated javascript files by js-beautify
+Plug 'tpope/vim-jdaddy'                       " jdaddy.vim: JSON manipulation and pretty printing
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -980,7 +982,7 @@ autocmd Filetype erlang setlocal omnifunc=erlang_complete#Complete
 
 " --- JavaScript ---
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+" autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType javascript setlocal commentstring=//\ %s
 autocmd FileType javascript let b:javascript_fold = 0
@@ -1438,3 +1440,24 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   " directory name (/something/src)
   nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 endif
+
+" My pretty print json
+com! FormatJSON %!python -m json.tool
+nnoremap <leader>js :FormatJSON<CR>
+
+" vim-jsbeautify
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
