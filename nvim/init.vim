@@ -1475,3 +1475,15 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" FixDeleteButton for VIM
+if &term == "termname"
+  set t_kD=[3~]
+endif
+
+" " FixRussianLayout
+" set keymap=russian-jcukenwin
+" set iminsert=0
+" set imsearch=0
+" highlight lCursor guifg=NONE guibg=Cyan
+" setlocal spell spelllang=ru_yo,en_us
