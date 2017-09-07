@@ -149,7 +149,6 @@ Plug 'vim-scripts/vimprj'                     " Plugin for managing options for 
 Plug 'rkintzi/vim-dfutil'                     " Very simple set of Vim functions that I use in multiple projects
 " Plug 'vim-scripts/exUtility'
 " Plug 'vim-scripts/ShowMarks'                  " Visually shows the location of marks.
-Plug 'LucHermitte/lh-tags'                    " ctags base updating, and browsing from vim
 
 
 if isdirectory('/usr/local/opt/fzf')
