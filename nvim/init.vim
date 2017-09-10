@@ -149,6 +149,12 @@ Plug 'vim-scripts/vimprj'                     " Plugin for managing options for 
 Plug 'rkintzi/vim-dfutil'                     " Very simple set of Vim functions that I use in multiple projects
 " Plug 'vim-scripts/exUtility'
 " Plug 'vim-scripts/ShowMarks'                  " Visually shows the location of marks.
+Plug 'osyo-manga/vim-over'
+Plug 'craigemery/vim-autotag'
+Plug 'xolox/vim-easytags'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'danielsiepmann/neotags'
+Plug 'thezoq2/neovim-auto-autoread'
 
 
 if isdirectory('/usr/local/opt/fzf')
