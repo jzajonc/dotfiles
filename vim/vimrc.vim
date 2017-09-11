@@ -364,7 +364,7 @@ set expandtab
 
 "" Map leader to ,
 " let mapleader=','
-let mapleader=<space>
+let mapleader=' '
 
 "" Enable hidden buffers
 set hidden
@@ -695,7 +695,7 @@ noremap <leader>x :bp<CR>
 noremap <leader>q :BD<CR>
 
 "" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
+nnoremap <silent> <leader>, :noh<cr>
 
 "" Switching windows
 " noremap <C-j> <C-w>j
