@@ -34,6 +34,9 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'shougo/neocomplete.vim'              " Next generation completion framework after neocomplcache
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'evandotpro/nerdtree-chmod'
+Plug 'low-ghost/nerdtree-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -1489,3 +1492,18 @@ endif
 " set imsearch=0
 " highlight lCursor guifg=NONE guibg=Cyan
 " setlocal spell spelllang=ru_yo,en_us
+
+" " autorefresh NERDTree
+" autocmd CursorHold,CursorHoldI * call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
