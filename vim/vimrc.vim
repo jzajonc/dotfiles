@@ -363,7 +363,8 @@ set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
-let mapleader=','
+" let mapleader=','
+let mapleader=<space>
 
 "" Enable hidden buffers
 set hidden
@@ -687,8 +688,8 @@ endif
 "" Buffer nav
 " noremap <leader>z :bp<CR>
 " noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>c :bp<CR>
+noremap <leader>c :bn<CR>
+noremap <leader>x :bp<CR>
 
 "" Close buffer
 noremap <leader>q :BD<CR>
@@ -934,10 +935,10 @@ let g:tagbar_type_ruby = {
 \ }
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " For ruby refactory
 if has('nvim')
