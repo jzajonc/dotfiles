@@ -688,7 +688,7 @@ endif
 " noremap <leader>z :bp<CR>
 " noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
-noremap <leader>z :bp<CR>
+noremap <leader>c :bp<CR>
 
 "" Close buffer
 noremap <leader>q :BD<CR>
@@ -1169,7 +1169,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-nnoremap <A-S-z> :set wrap!<CR>
+nnoremap <leader>z :set wrap!<CR>
 
 " My settings for move around window
 function! WinMove(key)
