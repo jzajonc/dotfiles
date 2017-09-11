@@ -149,8 +149,8 @@ Plug 'rkintzi/vim-dfutil'                     " Very simple set of Vim functions
 " Plug 'vim-scripts/exUtility'
 " Plug 'vim-scripts/ShowMarks'                  " Visually shows the location of marks.
 Plug 'osyo-manga/vim-over'
-Plug 'craigemery/vim-autotag'
-Plug 'xolox/vim-easytags'
+" Plug 'craigemery/vim-autotag'
+" Plug 'xolox/vim-easytags'
 Plug 'ludovicchabant/vim-gutentags'
 " Plug 'danielsiepmann/neotags'
 Plug 'djoshea/vim-autoread'
