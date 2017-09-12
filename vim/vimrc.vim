@@ -144,6 +144,11 @@ Plug 'wincent/scalpel'                        " Fast within-file word replacemen
 Plug 'wincent/loupe'                          " Enhanced in-file search for Vim
 Plug 'maksimr/vim-jsbeautify'                 " vim plugin which formated javascript files by js-beautify
 Plug 'tpope/vim-jdaddy'                       " jdaddy.vim: JSON manipulation and pretty printing
+Plug 'tpope/vim-dispatch'                     " dispatch.vim: asynchronous build and test dispatcher
+Plug 'skywind3000/asyncrun.vim'               " Run Async Shell Commands in Vim 8.0 / NeoVim and Output to Quickfix Window
+Plug 'NLKNguyen/pipe.vim'                     " Vim plugin to pipe command line output into Vim window. Support external running interface. Include utilities
+Plug 'NLKNguyen/pipe-mysql.vim'               " MySQL client runner to query MySQL / Amazon Aurora / MariaDB database in Vim interactively (also remotely)
+Plug 'vim-scripts/dbext.vim'                  " Provides database access to many dbms (Oracle, Sybase, Microsoft, MySQL, DBI,..)
 Plug 'vim-scripts/taglist.vim'                " Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
 Plug 'qpkorr/vim-bufkill'
 Plug 'vim-scripts/indexer.tar.gz'             " indexing all files in project with ctags (can work as add-on for project.tar.gz)
