@@ -708,14 +708,14 @@ noremap <leader>q :BD<CR>
 nnoremap <silent> <leader>, :noh<cr>
 
 "" Switching windows
-" noremap <C-j> <C-w>j
-" noremap <C-k> <C-w>k
-" noremap <C-l> <C-w>l
-" noremap <C-h> <C-w>h
-nnoremap <silent> <C-h> :call WinMove('h')<CR>
-nnoremap <silent> <C-j> :call WinMove('j')<CR>
-nnoremap <silent> <C-k> :call WinMove('k')<CR>
-nnoremap <silent> <C-l> :call WinMove('l')<CR>
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+" nnoremap <silent> <C-h> :call WinMove('h')<CR>
+" nnoremap <silent> <C-j> :call WinMove('j')<CR>
+" nnoremap <silent> <C-k> :call WinMove('k')<CR>
+" nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
@@ -1183,18 +1183,18 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <leader>z :set wrap!<CR>
 
 " My settings for move around window
-function! WinMove(key)
-  let t:curwin = winnr()
-  exec "wincmd ".a:key
-  if (t:curwin == winnr())
-    if (match(a:key,'[jk]'))
-      wincmd v
-    else
-      wincmd s
-    endif
-    exec "wincmd ".a:key
-  endif
-endfunction
+" function! WinMove(key)
+"   let t:curwin = winnr()
+"   exec "wincmd ".a:key
+"   if (t:curwin == winnr())
+"     if (match(a:key,'[jk]'))
+"       wincmd v
+"     else
+"       wincmd s
+"     endif
+"     exec "wincmd ".a:key
+"   endif
+" endfunction
 
 " My settings for tags
 map <F12> :Tags<cr>
