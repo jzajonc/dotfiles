@@ -31,6 +31,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-jedi'
 Plug 'shougo/neocomplete.vim'              " Next generation completion framework after neocomplcache
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -163,6 +165,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'ludovicchabant/vim-gutentags'
 " Plug 'danielsiepmann/neotags'
 Plug 'djoshea/vim-autoread'
+" Plug 'thezoq2/neovim-auto-autoread'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -1197,6 +1200,9 @@ nnoremap <leader>z :set wrap!<CR>
 
 " My settings for tags
 map <F12> :Tags<cr>
+
+" " Deoplete settings
+" let g:deoplete#enable_at_startup = 1
 
 "=====================================================
 " Python-mode settings
