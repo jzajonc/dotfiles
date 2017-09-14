@@ -167,6 +167,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'djoshea/vim-autoread'
 " Plug 'thezoq2/neovim-auto-autoread'
 Plug 'notpratheek/Pychimp-vim'                " Color Schema
+Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -415,18 +416,19 @@ set number
 
 " My settings add material theme
 "*****************************************************************************
+" let base16 in 256 colorspace
 " set termguicolors
 " syntax enable
 " set background=dark
 " colorscheme material-theme
 set background=dark
-" colorscheme hybrid_reverse
-syntax enable
+colorscheme hybrid_reverse
+" syntax enable
 " colorscheme monokai
 " let g:monokai_term_italic = 1
 " let g:monokai_gui_italic = 1
-colorscheme molokai
-let g:molokai_original = 1
+" colorscheme molokai
+" let g:molokai_original = 1
 "*****************************************************************************
 
 " let no_buffers_menu=1
