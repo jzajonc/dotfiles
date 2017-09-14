@@ -438,9 +438,11 @@ colorscheme hybrid_reverse
 
 set mousemodel=popup
 set t_Co=256
+" set anti enc=utf-8
 set guioptions=egmrti
 " set gfn=Monospace\ 10
-set gfn=Hack\ 12
+" set gfn=Hack\ 12
+set gfn=Source\ Code\ Pro\ 12
 
 " if has("gui_running")
 "   if has("gui_mac") || has("gui_macvim")
