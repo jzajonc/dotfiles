@@ -168,6 +168,7 @@ Plug 'djoshea/vim-autoread'
 " Plug 'thezoq2/neovim-auto-autoread'
 Plug 'notpratheek/Pychimp-vim'                " Color Schema
 Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
+" Plug 'sjl/vitality.vim'                       " Make Vim play nicely with iTerm 2 and tmux.
 
 
 if isdirectory('/usr/local/opt/fzf')
