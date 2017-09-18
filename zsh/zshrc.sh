@@ -1,5 +1,5 @@
 TERM=screen-256color
-
+autoload -Uz compinit && compinit
 # Vars
 HISTFILE=~/.zsh_history
 SAVEHIST=1000000
@@ -19,7 +19,7 @@ alias nvi="nvim"
 alias nv="nvim"
 alias cls="clear"
 alias tm="tmux"
-alias la="ls -a -l --sort=extension -v"
+alias la="ls -al"
 alias _="sudo"
 # alias d-clogs="docker-compose logs --follow"
 # alias d-c="docker-compose"
@@ -68,6 +68,8 @@ source $HOME/dotfiles/zsh/plugins/zle_vi_visual.zsh
 source $HOME/dotfiles/zsh/plugins/fixls.zsh
 source $HOME/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/prompt.sh
+source $HOME/dotfiles/zsh/plugins/tmuxinator.zsh
+source $HOME/dotfiles/zsh/plugins/iterm2_shell_integration.zsh
 
 #Functions
 # Custom cd

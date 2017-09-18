@@ -1314,8 +1314,8 @@ nnoremap <leader>S :ToggleWorkspace<CR>
 nmap <silent> <C-_> <Plug>(pydocstring)
 
 " YouCompleteMe
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 
 function! Setup_mappings()
   " Overwrite the mappings that UltiSnips sets up during expansion.
@@ -1548,3 +1548,11 @@ let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=delivery:passwd=123:d
 
 " Settings for auto save
 au BufLeave,FocusLost * silent! wa
+
+" Mouse support for Mac
+if has("mouse")
+    set mouse=a
+  endif
+
+" Set Clipbord manager
+set clipboard=unnamed
