@@ -169,6 +169,7 @@ Plug 'djoshea/vim-autoread'
 Plug 'notpratheek/Pychimp-vim'                " Color Schema
 Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
 " Plug 'sjl/vitality.vim'                       " Make Vim play nicely with iTerm 2 and tmux.
+Plug 'xolox/vim-notes'                        " Easy note taking in Vim
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -1478,7 +1479,7 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
 endif
 
 " My pretty print json
-com! FormatJSON %!python -m json.tool
+com! FormatJSON %!python3 -m json.tool
 nnoremap <leader>js :FormatJSON<CR>
 
 " vim-jsbeautify
