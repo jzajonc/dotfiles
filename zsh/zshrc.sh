@@ -29,6 +29,7 @@ alias mux="tmuxinator"
 alias emc="emacs -nw"
 alias em="emacs"
 alias dclfc="docker-compose logs -f | sed -r -e 's/((ERROR|FATAL|CRITICAL|Error|Fatal|Critical|error|fatal|critical|exit).*)/\o033[41m\1\o033[39m/' -e 's/((WARNING|NOTICE|Warning|Notice|warning|notice).*)/\o033[1;33m\1\o033[39m/' -e 's/((INFO|Info|info).*)/\o033[0;32m\1\o033[39m/'"
+alias mc="/usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh"
 
 # Settings
 export VISUAL=vim
