@@ -108,9 +108,9 @@ Plug 'kovisoft/slimv'                      " Official mirror of Slimv versions r
 " Plug 'johndgiese/vipy'                     " Vim plugin that allows you to use IPython within vim.
 " Plug 'ivanov/vim-ipython'                  " A two-way integration between Vim and IPython 0.11+
 " Plug 'isnowfy/python-vim-instant-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'suan/vim-instant-markdown'
-Plug 'nelstrom/vim-markdown-preview'
+" Plug 'jtratner/vim-flavored-markdown'
+" Plug 'suan/vim-instant-markdown'
+" Plug 'nelstrom/vim-markdown-preview'
 " Plug 'nvie/vim-flake8'
 " Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
@@ -170,7 +170,7 @@ Plug 'notpratheek/Pychimp-vim'                " Color Schema
 Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
 " Plug 'sjl/vitality.vim'                       " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'xolox/vim-notes'                        " Easy note taking in Vim
-Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. requirements: npm install -g livedown
+" Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. requirements: npm install -g livedown
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'            " Real-time markdown preview plugin for vim
 
@@ -1561,9 +1561,9 @@ if has("mouse")
 " Set Clipbord manager
 set clipboard=unnamed
 
-" Markdown Settings
-let vim_markdown_preview_toggle=2
-let vim_markdown_preview_hotkey='<C-y>'
-" let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_temp_file=1
-let vim_markdown_preview_use_xdg_open=1
+" " Markdown Settings
+" let vim_markdown_preview_toggle=2
+" let vim_markdown_preview_hotkey='<C-y>'
+" " let vim_markdown_preview_browser='Google Chrome'
+" let vim_markdown_preview_temp_file=1
+" let vim_markdown_preview_use_xdg_open=1
