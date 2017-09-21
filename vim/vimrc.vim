@@ -170,6 +170,9 @@ Plug 'notpratheek/Pychimp-vim'                " Color Schema
 Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
 " Plug 'sjl/vitality.vim'                       " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'xolox/vim-notes'                        " Easy note taking in Vim
+Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. requirements: npm install -g livedown
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'            " Real-time markdown preview plugin for vim
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -1557,3 +1560,10 @@ if has("mouse")
 
 " Set Clipbord manager
 set clipboard=unnamed
+
+" Markdown Settings
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_hotkey='<C-y>'
+" let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_temp_file=1
+let vim_markdown_preview_use_xdg_open=1
