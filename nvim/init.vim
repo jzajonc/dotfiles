@@ -693,9 +693,9 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+" if has('unnamedplus')
+set clipboard^=unnamed,unnamedplus
+" endif
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -1559,7 +1559,7 @@ if has("mouse")
   endif
 
 " Set Clipbord manager
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " " Markdown Settings
 " let vim_markdown_preview_toggle=2
