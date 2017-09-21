@@ -170,9 +170,10 @@ Plug 'notpratheek/Pychimp-vim'                " Color Schema
 Plug 'chriskempson/base16-vim'                " Base16 for Vim color scheme
 " Plug 'sjl/vitality.vim'                       " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'xolox/vim-notes'                        " Easy note taking in Vim
-" Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. requirements: npm install -g livedown
+Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. requirements: npm install -g livedown
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'            " Real-time markdown preview plugin for vim
+Plug 'kana/vim-fakeclip'
 
 
 if isdirectory('/usr/local/opt/fzf')
