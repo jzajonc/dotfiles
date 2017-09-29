@@ -174,6 +174,7 @@ Plug 'shime/vim-livedown'                     " Vim plugin for Livedown. require
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'            " Real-time markdown preview plugin for vim
 Plug 'kana/vim-fakeclip'
+Plug 'sareyko/neat.vim'                       " A simple VIM plugin to help you pretty print your data.
 
 
 if isdirectory('/usr/local/opt/fzf')
