@@ -320,6 +320,7 @@ Plug 'janko-m/vim-test'               " A Vim wrapper for running tests on diffe
 Plug 'alfredodeza/pytest.vim'         " A simple way of running your tests (with py.test) from within VIM.
 Plug 'heavenshell/vim-pydocstring'    " Generate Python docstring to your Python script file.
 " Plug 'yhat/vim-docstring'             " Fold your Python docstrings
+Plug 'hdima/python-syntax'            " Python3 syntax highlighting script for Vim
 
 
 " ruby
@@ -919,7 +920,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
+" let g:polyglot_disabled = ['python3']
 let python_highlight_all = 1
 " --- Python ---
 let python_highlight_all=1
@@ -1051,6 +1052,14 @@ autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-l> <Plug>SparkupNext
 autocmd FileType htmljinja setlocal commentstring={#\ %s\ #}
 let html_no_rendering=1
 let g:syntastic_html_checkers = []
+
+" --- python ---
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+set complete=""
+set complete+=.
+set complete+=k
+set complete+=b
+set complete+=t
 "*****************************************************************************
 "*****************************************************************************
 
