@@ -2,11 +2,11 @@
 source ~/dotfiles/zsh/zshrc.sh
 
 # # Run tmux if exists
- if command -v tmux>/dev/null; then
-    [ -z $TMUX ] && exec tmux -u
-# else
-#     echo "tmux not installed. Run ./deploy to configure dependencies"
-fi
+ # if [ `hostname` = "HOL-ML-ZAJONC" ] && command -v tmux>/dev/null; then
+ #    [ -z $TMUX ] && exec tmux -u
+# # else
+# #     echo "tmux not installed. Run ./deploy to configure dependencies"
+# fi
 
 # # Pulling changes from repo
 # echo "Updating configuration"

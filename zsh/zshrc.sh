@@ -1,4 +1,4 @@
-TERM=screen-256color-italic
+TERM=xterm-256color-italic
 autoload -Uz compinit && compinit
 # Vars
 HISTFILE=~/.zsh_history
@@ -18,7 +18,8 @@ alias nvim="nvim"
 alias nvi="nvim"
 alias nv="nvim"
 alias cls="clear"
-alias tm="tmux"
+alias tm="tmux -u"
+alias tmux="tmux -u"
 alias la="ls -al"
 alias _="sudo"
 # alias d-clogs="docker-compose logs --follow"
