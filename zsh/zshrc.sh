@@ -1,4 +1,4 @@
-TERM=screen-256color
+TERM=screen-256color-italic
 autoload -Uz compinit && compinit
 # Vars
 HISTFILE=~/.zsh_history
@@ -35,15 +35,7 @@ alias dcpsn="docker ps --format '{{.Names}}'"
 # Settings
 export VISUAL=vim
 # export ZSH=$HOME/.antigen/bundles/robbyrussell/oh-my-zsh
-export EDITOR=nvim
-export ANDROID_HOME=/home/qadc/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export SDKMAN_DIR="/home/qadc/.sdkman"
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export NVIM_PYTHON_LOG_FILE=/tmp/log
-export NVIM_PYTHON_LOG_LEVEL=DEBUG
+export EDITOR=vim
 
 # source $ZSH/oh-my-zsh.sh
 source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
@@ -127,5 +119,3 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "/home/qadc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/qadc/.sdkman/bin/sdkman-init.sh"
