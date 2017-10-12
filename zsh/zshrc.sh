@@ -38,33 +38,16 @@ export VISUAL=vim
 # export ZSH=$HOME/.antigen/bundles/robbyrussell/oh-my-zsh
 export EDITOR=vim
 
-# source $ZSH/oh-my-zsh.sh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh
-# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenv/virtualenv.plugin.zsh
-# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/virtualenvwrapper/virtualenvwrapper.plugin.zsh
-source $HOME/.antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git/git.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/dirhistory/dirhistory.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip/pip.plugin.zsh
-# source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/python/python.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd/wd.plugin.zsh
-# source $HOME/dotfiles/zsh/plugins/vi-mode.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein/lein.plugin.zsh
-source $HOME/dotfiles/zsh/plugins/pytest.plugin.zsh
-source $HOME/dotfiles/zsh/plugins/python.completion.zsh
-source $HOME/dotfiles/zsh/plugins/python.plugin.zsh
-source $HOME/dotfiles/zsh/plugins/zle_vi_visual.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/plugins/fixls.zsh
 source $HOME/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/prompt.sh
-source $HOME/dotfiles/zsh/plugins/tmuxinator.zsh
-source $HOME/dotfiles/zsh/plugins/iterm2_shell_integration.zsh
 
 #Functions
 # Custom cd
@@ -79,32 +62,32 @@ stty -ixon
 
 plugins=()
 
-if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
-	source $HOME/dotfiles/zsh/plugins/antigen.zsh
+# if [[ ! -d ~/.antigen/bundles/robbyrussell ]]; then
+# 	source $HOME/dotfiles/zsh/plugins/antigen.zsh
 
-	# Load the oh-my-zsh's library.
-	antigen use oh-my-zsh
+# 	# Load the oh-my-zsh's library.
+# 	# antigen use oh-my-zsh
 
-	# Bundles from the default repo (robbyrussell's oh-my-zsh).
-	antigen bundle git
-	antigen bundle heroku
-	antigen bundle pip
-	antigen bundle lein
-	antigen bundle command-not-found
+# 	# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# 	# antigen bundle git
+# 	# antigen bundle heroku
+# 	# antigen bundle pip
+# 	# antigen bundle lein
+# 	antigen bundle command-not-found
 
-	# Syntax highlighting bundle.
-	antigen bundle zsh-users/zsh-syntax-highlighting
+# 	# Syntax highlighting bundle.
+# 	antigen bundle zsh-users/zsh-syntax-highlighting
 
-	# Autosuggestions
-	antigen bundle zsh-users/zsh-autosuggestions
+# 	# Autosuggestions
+# 	antigen bundle zsh-users/zsh-autosuggestions
 
-	# Load the theme.
-	# antigen theme robbyrussell
-	# antigen theme refined
+# 	# Load the theme.
+# 	# antigen theme robbyrussell
+# 	# antigen theme refined
 
-	# Tell Antigen that you're done.
-	antigen apply
-fi
+# 	# Tell Antigen that you're done.
+# 	antigen apply
+# fi
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
