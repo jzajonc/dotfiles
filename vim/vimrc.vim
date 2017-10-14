@@ -1,3 +1,23 @@
+set nocompatible
+:setlocal keywordprg=:help
+
+"Search into subfolders
+set path+=**
+
+"Disable ARROWS temporarly
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+" kjnnoremap <Left> :echo "NO ARROWS!!!!"<CR>
+" vnoremap <Left> :<C-u>echo "NO ARROWS!!!!"<CR>
+" inoremap <Left> <C-o>:echo "NO ARROWS!!!!"<CR>
+
+"So I can move around in insert
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj
 
 if filereadable(expand("~/dotfiles/vim/plug.vim"))
   source ~/dotfiles/vim/plug.vim 
@@ -40,9 +60,10 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " enable 24 bit color support if supported
 
-	 let g:onedark_termcolors=16
-	 let g:onedark_terminal_italics=1
-	  colorscheme onedark
+	 " let g:onedark_termcolors=16
+ let g:onedark_terminal_italics=1
+ set background=dark
+ colorscheme onedark
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermfg=236
@@ -58,10 +79,10 @@ highlight Normal ctermbg=none
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
 
-set wrap                    " turn on line wrapping
-set wrapmargin=8            " wrap lines when coming within n characters from side
-set linebreak               " set soft wrapping
-set showbreak=…             " show ellipsis at breaking
+" set wrap                    " turn on line wrapping
+" set wrapmargin=8            " wrap lines when coming within n characters from side
+" set linebreak               " set soft wrapping
+" set showbreak=…             " show ellipsis at breaking
 
 set autoindent              " automatically set indent of new line
 set smartindent
@@ -137,10 +158,10 @@ endif
 " Section Mappings {{{
 
 " set a map leader for more key combos
-let mapleader = ','
+" let mapleader = ','
 
 " remap esc
-inoremap jk <esc>
+" inoremap jk <esc>
 
 " wipout buffer
 nmap <silent> <leader>b :bw<cr>
@@ -154,8 +175,6 @@ set pastetoggle=<leader>v
 " toggle paste mode
 " map <leader>v :set paste!<cr>
 
-" edit ~/.config/nvim/init.vim
-map <leader>ev :e! ~/.config/nvim/init.vim<cr>
 " edit gitconfig
 map <leader>eg :e! ~/.gitconfig<cr>
 
@@ -350,20 +369,23 @@ let g:ale_linters = {
 \	'html': []
 \}
 
-" airline options
+" " airline options
 let g:airline_powerline_fonts=1
 
 
- " let g:airline_left_sep=''
- " let g:airline_right_sep=''
-" let g:airline_theme='base16'
- let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
- let g:airline#extensions#tabline#enabled = 1
- let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
- let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
-let g:airline#extensions#tabline#show_splits = 0
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+let g:airline_theme='onedark'
+ " let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled = 0 " enable airline tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
+let g:airline#extensions#tabline#show_buffers = 1 " do not show open buffers in tabline
+let g:airline#extensions#tabline#show_splits = 1
 
- map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>:Tmuxline<CR>
+
+
+ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
@@ -371,13 +393,14 @@ let g:vim_json_syntax_conceal = 0
 let g:SuperTabCrMapping = 0
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
+
 
 " Return to the same line you left off at
-    augroup line_return
-        au!
-        au BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \    execute 'normal! g`"zvzz' |
-            \ endif
-    augroup END
+  augroup line_return
+      au!
+      au BufReadPost *
+	  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+	  \    execute 'normal! g`"zvzz' |
+	  \ endif
+  augroup END
+
