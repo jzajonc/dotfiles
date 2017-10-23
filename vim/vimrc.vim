@@ -61,20 +61,20 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 " enable 24 bit color support if supported
 
 	 " let g:onedark_termcolors=16
- let g:onedark_terminal_italics=1
+ " let g:onedark_terminal_italics=1
  set background=dark
- colorscheme onedark
+ colorscheme dracula
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermfg=236
 highlight NonText ctermfg=236
 
 " make comments and HTML attributes italic
-highlight Comment cterm=italic
-highlight htmlArg cterm=italic
-highlight xmlAttrib cterm=italic
-highlight Type cterm=italic
-highlight Normal ctermbg=none
+" highlight Comment cterm=italic
+" highlight htmlArg cterm=italic
+" highlight xmlAttrib cterm=italic
+" highlight Type cterm=italic
+" highlight Normal ctermbg=none
 
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
@@ -190,6 +190,19 @@ nmap <leader>md :%!markdown --html4tags <cr>
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
 nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
+
+" Strip whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfun
 
 
 nmap <leader>l :set list!<cr>
@@ -313,7 +326,13 @@ augroup END
 "omap <leader><tab> <plug>(fzf-maps-o)
 
 set complete=.,w,b,u,t
-"" Insert mode completion
+
+" Enable auto-completion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+  "" Insert mode completion
 "imap <c-x><c-k> <plug>(fzf-complete-word)
 "imap <c-x><c-f> <plug>(fzf-complete-path)
 "imap <c-x><c-j> <plug>(fzf-complete-file-ag)
@@ -374,9 +393,9 @@ let g:ale_linters = {
 let g:airline_powerline_fonts=1
 
 
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-let g:airline_theme='onedark'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+" let g:airline_theme='onedark'
  " let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 0 " enable airline tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -400,8 +419,8 @@ let g:SuperTabCrMapping = 0
 " Return to the same line you left off at
   augroup line_return
       au!
-      au BufReadPost *
-	  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      au BufReadPost * 
+	    \ if line("'\"") > 0 && line("'\"") <= line("$") |
 	  \    execute 'normal! g`"zvzz' |
 	  \ endif
   augroup END
