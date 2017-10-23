@@ -285,57 +285,58 @@ augroup END
 
 " Section Plugins {{{
 
-" FZF
-"""""""""""""""""""""""""""""""""""""
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
+"" FZF
+""""""""""""""""""""""""""""""""""""""
+"" Toggle NERDTree
+"nmap <silent> <leader>k :NERDTreeToggle<cr>
+"" expand to the path of the file in the current buffer
+"nmap <silent> <leader>y :NERDTreeFind<cr>
 
-let NERDTreeShowHidden=1
-let NERDTreeDirArrowExpandable = '▷'
-let NERDTreeDirArrowCollapsible = '▼'
+"let NERDTreeShowHidden=1
+"let NERDTreeDirArrowExpandable = '▷'
+"let NERDTreeDirArrowCollapsible = '▼'
 
-let g:fzf_layout = { 'down': '~25%' }
+"let g:fzf_layout = { 'down': '~25%' }
 
-if isdirectory(".git")
-    " if in a git project, use :GFiles
-    nmap <silent> <leader>t :GFiles --cached --others --exclude-standard<cr>
-else
-    " otherwise, use :FZF
-    nmap <silent> <leader>t :FZF<cr>
-endif
+"if isdirectory(".git")
+"    " if in a git project, use :GFiles
+"    nmap <silent> <leader>t :GFiles --cached --others --exclude-standard<cr>
+"else
+"    " otherwise, use :FZF
+"    nmap <silent> <leader>t :FZF<cr>
+"endif
 
-nmap <silent> <leader>r :Buffers<cr>
-nmap <silent> <leader>e :FZF<cr>
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+"nmap <silent> <leader>r :Buffers<cr>
+"nmap <silent> <leader>e :FZF<cr>
+"nmap <leader><tab> <plug>(fzf-maps-n)
+"xmap <leader><tab> <plug>(fzf-maps-x)
+"omap <leader><tab> <plug>(fzf-maps-o)
 
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+set complete=.,w,b,u,t
+"" Insert mode completion
+"imap <c-x><c-k> <plug>(fzf-complete-word)
+"imap <c-x><c-f> <plug>(fzf-complete-path)
+"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+"imap <c-x><c-l> <plug>(fzf-complete-line)
 
-nnoremap <silent> <Leader>C :call fzf#run({
-\   'source':
-\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-\   'sink':    'colo',
-\   'options': '+m',
-\   'left':    30
-\ })<CR>
+"nnoremap <silent> <Leader>C :call fzf#run({
+"\   'source':
+"\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+"\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+"\   'sink':    'colo',
+"\   'options': '+m',
+"\   'left':    30
+"\ })<CR>
 
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
+"command! FZFMru call fzf#run({
+"\  'source':  v:oldfiles,
+"\  'sink':    'e',
+"\  'options': '-m -x +s',
+"\  'down':    '40%'})
 
-command! -bang -nargs=* Find call fzf#vim#grep(
-	\ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
-	\ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
+"command! -bang -nargs=* Find call fzf#vim#grep(
+"	\ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
+"	\ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 
 " Emmet
 """""""""""""""""""""""""""""""""""""
@@ -382,6 +383,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 1 " do not show open buffers in tabline
 let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 
