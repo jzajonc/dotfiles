@@ -378,7 +378,7 @@ nmap <leader>* *<c-o>:%s///gn<cr>
 
 let g:ale_change_sign_column_color = 1
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
+" let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
@@ -397,6 +397,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 " let g:airline_theme='onedark'
  " let g:airline_theme='base16'
+ let g:airline_theme='dracula'
 let g:airline#extensions#tabline#enabled = 0 " enable airline tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
