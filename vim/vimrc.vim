@@ -376,7 +376,7 @@ nmap <leader>m :MarkedOpen!<cr>
 nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
 
-let g:ale_change_sign_column_color = 1
+" let g:ale_change_sign_column_color = 1
 let g:ale_sign_column_always = 1
 " let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
