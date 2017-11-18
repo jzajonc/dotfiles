@@ -4,6 +4,10 @@ set nocompatible
 "Search into subfolders
 set path+=**
 
+"Force UTF-8
+set encoding=utf-8
+set fileencoding=utf-8
+
 "Disable ARROWS temporarly
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -64,6 +68,8 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
  " let g:onedark_terminal_italics=1
  set background=dark
  colorscheme dracula
+
+ let g:ragtag_global_maps = 1
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermfg=236
@@ -147,6 +153,9 @@ set noerrorbells
 set visualbell
 set t_vb=
 set tm=500
+
+"Show insert completion menu
+set shortmess-=c
 
 if has('mouse')
 	set mouse=a

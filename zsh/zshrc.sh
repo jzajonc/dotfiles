@@ -1,5 +1,6 @@
 TERM=xterm-256color
 autoload -Uz compinit && compinit
+setopt no_nomatch
 # Vars
 HISTFILE=~/.zsh_history
 SAVEHIST=1000000
