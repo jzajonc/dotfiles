@@ -105,13 +105,15 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 set backspace=indent,eol,start
 
 " Tab control
-set noexpandtab             " insert tabs rather than spaces for <Tab>
+set expandtab             " insert tabs rather than spaces for <Tab>
 set smarttab                " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4               " the visible width of tabs
 set softtabstop=4           " edit as if the tabs are 4 characters wide
 set shiftwidth=4            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
+
+
 
 " code folding settings
 set foldmethod=syntax       " fold based on indent
@@ -373,6 +375,8 @@ let g:user_emmet_settings = {
 \      'extends': 'jsx',
 \  },
 \}
+
+let g:jsx_ext_required = 0
 
 " Fugitive Shortcuts
 """""""""""""""""""""""""""""""""""""
