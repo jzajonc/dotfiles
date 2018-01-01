@@ -389,7 +389,9 @@ nmap <leader>m :MarkedOpen!<cr>
 nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
 
-" let g:ale_change_sign_column_color = 1
+let g:ale_python_flake8_options = '--ignore E501,E128,E123,E126'
+
+" let g:le_change_sign_column_color = 1
 let g:ale_sign_column_always = 1
 " let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
