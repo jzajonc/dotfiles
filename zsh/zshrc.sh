@@ -5,14 +5,16 @@ setopt no_nomatch
 HISTFILE=~/.zsh_history
 SAVEHIST=1000000
 setopt inc_append_history # To save every command before it is executed
-setopt share_history # setopt inc_append_history
+# setopt share_history # setopt inc_append_history
+setopt no_share_history #History on per terminal
+unsetopt share_history
 
 # Aliases
 # alias v="vim -p"
 alias stopvpn="sudo service openvpn stop"
 alias startvpn="sudo service openvpn start"
 alias statusvpn="sudo service openvpn status"
-alias vim="vim"
+alias vim="/usr/local/bin/vim"
 alias vi="vim"
 alias v="vim"
 alias nvim="nvim"
@@ -104,3 +106,5 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+setopt no_share_history #History on per terminal
+unsetopt share_history
