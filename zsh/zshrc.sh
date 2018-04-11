@@ -1,4 +1,4 @@
-TERM=xterm-256color
+TERM=xterm-256color-italic
 autoload -Uz compinit && compinit
 setopt no_nomatch
 # Vars
