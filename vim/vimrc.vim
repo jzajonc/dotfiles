@@ -67,6 +67,7 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 	 " let g:onedark_termcolors=16
  " let g:onedark_terminal_italics=1
  set background=dark
+ let g:dracula_colorterm = 0
  colorscheme dracula
 
  let g:ragtag_global_maps = 1
