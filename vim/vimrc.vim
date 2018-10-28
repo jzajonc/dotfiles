@@ -72,6 +72,10 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
  set background=dark
  let g:dracula_colorterm = 0
  colorscheme dracula
+if has("gui_running")
+    let g:dracula_colorterm = 1
+    colorscheme macvim
+endif
 
  let g:ragtag_global_maps = 1
 
@@ -123,7 +127,7 @@ set completeopt+=longest
 set foldmethod=syntax       " fold based on indent
 set foldlevelstart=3
 set foldnestmax=10          " deepest fold is 10 levels
-" set nofoldenable            " don't fold by default
+set nofoldenable            " don't fold by default
 " set foldlevel=1
 let perl_fold=1
 let perl_fold_blocks = 1
@@ -411,6 +415,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tslint', 'tsserver'],
+\   'perl': ['perl', 'perlcritic'],
 \	'html': []
 \}
 
