@@ -75,6 +75,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node' 
 Plug 'mxw/vim-jsx' 
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+Plug 'jparise/vim-graphql'
 
 " TypeScript
 " Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'npm install' } " extended typescript support - works as a client for TSServer

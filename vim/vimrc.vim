@@ -124,10 +124,10 @@ set completeopt+=longest
 
 
 " code folding settings
-set foldmethod=syntax       " fold based on indent
-set foldlevelstart=3
-set foldnestmax=10          " deepest fold is 10 levels
-set nofoldenable            " don't fold by default
+"set foldmethod=syntax       " fold based on indent
+"set foldlevelstart=3
+"set foldnestmax=10          " deepest fold is 10 levels
+"set nofoldenable            " don't fold by default
 " set foldlevel=1
 let perl_fold=1
 let perl_fold_blocks = 1
