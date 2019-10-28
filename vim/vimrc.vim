@@ -84,11 +84,18 @@ highlight SpecialKey ctermfg=236
 highlight NonText ctermfg=236
 
 " make comments and HTML attributes italic
-" highlight Comment cterm=italic
-" highlight htmlArg cterm=italic
-" highlight xmlAttrib cterm=italic
-" highlight Type cterm=italic
-" highlight Normal ctermbg=none
+"
+" " To support Italic in vim (^[ if ^v + Esc):
+" set t_ZH=^[[3m
+" set t_ZR=^[[23m
+set t_ZH=[3m
+set t_ZR=[23m
+
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
+highlight xmlAttrib cterm=italic
+highlight Type cterm=italic
+highlight Normal ctermbg=none
 
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
