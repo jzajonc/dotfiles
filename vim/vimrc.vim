@@ -1,6 +1,8 @@
 set nocompatible
 :setlocal keywordprg=:help
 
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 "Search into subfolders
 set path+=**
 

@@ -26,6 +26,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim'
 
+"CSV Plugin
+Plug 'mechatroner/rainbow_csv'
+
+" Plug 'valloric/youcompleteme'  "vim completion plugin 
+
+
 Plug 'vim-perl/vim-perl' 
 ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
 
@@ -35,7 +41,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'airblade/vim-gitgutter' " Show git giff on file
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
+" Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
@@ -47,6 +53,7 @@ Plug 'christoomey/vim-tmux-navigator' " TMUX & VIM splict commont shortcuts
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'w0rp/ale' " Asynchonous linting engine
+Plug 'Yggdroot/indentLine'  "indent lines
 Plug 'tpope/vim-fugitive' " amazing git wrapper for viPlug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-rhubarb' " hub extension for fugitive
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
@@ -73,7 +80,8 @@ Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node' 
-Plug 'mxw/vim-jsx' 
+" Plug 'mxw/vim-jsx' 
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'jparise/vim-graphql'
 
