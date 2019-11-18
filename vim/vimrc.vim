@@ -133,16 +133,16 @@ set completeopt+=longest
 
 
 " code folding settings
-"set foldmethod=syntax       " fold based on indent
-"set foldlevelstart=3
-"set foldnestmax=10          " deepest fold is 10 levels
-"set nofoldenable            " don't fold by default
+set foldmethod=indent       " fold based on indent
+set foldlevelstart=3
+set foldnestmax=10          " deepest fold is 10 levels
+set nofoldenable            " don't fold by default
 " set foldlevel=1
-let perl_fold=1
-let perl_fold_blocks = 1
-let sh_fold_enabled=1
-let perl_extended_vars=1
-let perl_sync_dist=250
+" let perl_fold=1
+" let perl_fold_blocks = 1
+" let sh_fold_enabled=1
+" let perl_extended_vars=1
+" let perl_sync_dist=250
 
 " set clipboard=unnamed
 set clipboard^=unnamed,unnamedplus
