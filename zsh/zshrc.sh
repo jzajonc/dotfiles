@@ -11,6 +11,7 @@ unsetopt share_history
 
 # Aliases
 # alias v="vim -p"
+alias ssh="TERM=xterm-256color ssh"
 alias stopvpn="sudo service openvpn stop"
 alias startvpn="sudo service openvpn start"
 alias statusvpn="sudo service openvpn status"
