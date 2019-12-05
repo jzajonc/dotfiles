@@ -102,6 +102,10 @@ Plug 'groenewege/vim-less', { 'for': 'less' } " less support
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
 " Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' } " sass scss syntax support
 
+
+"Markdown preview plugin
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 " markdown
 " Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
