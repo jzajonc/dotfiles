@@ -32,8 +32,7 @@ Plug 'mechatroner/rainbow_csv'
 " Plug 'valloric/youcompleteme'  "vim completion plugin 
 
 
-Plug 'vim-perl/vim-perl' 
-", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
+Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
 
 " utilities
 " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin'  " file drawer
@@ -53,6 +52,15 @@ Plug 'christoomey/vim-tmux-navigator' " TMUX & VIM splict commont shortcuts
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'w0rp/ale' " Asynchonous linting engine
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 Plug 'Yggdroot/indentLine'  "indent lines
 Plug 'tpope/vim-fugitive' " amazing git wrapper for viPlug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-rhubarb' " hub extension for fugitive
@@ -82,7 +90,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node' 
 " Plug 'mxw/vim-jsx' 
 Plug 'chemzqm/vim-jsx-improve'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'jparise/vim-graphql'
 
 " TypeScript

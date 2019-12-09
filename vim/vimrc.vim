@@ -1,10 +1,19 @@
 set nocompatible
 :setlocal keywordprg=:help
-
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+
+"CtrlP start searching from current Dir (not upper tree)
+let g:ctrlp_working_path_mode = 'ca'
+"CtrP Ignore some filetypes
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '[\/]\.(git|hg|svn)$',
+            \ 'file': '\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+
 "Search into subfolders
-set path+=**
+" set path+=**
 
 "TT support
 au BufNewFile,BufRead *.tt2 setf tt2html
@@ -29,17 +38,11 @@ inoremap <C-l> <Right>
 inoremap <C-j> <C-o>gj
 
 if filereadable(expand("~/dotfiles/vim/plug.vim"))
-  source ~/dotfiles/vim/plug.vim 
+    source ~/dotfiles/vim/plug.vim
 endif
 
-" Abbreviations
-abbr funciton function
+" Abbreviations (for typos corrxtion)
 abbr teh the
-abbr tempalte template
-abbr fitler filter
-abbr cosnt const
-abbr attribtue attribute
-abbr attribuet attribute
 
 set autoread                " detect when a file is changed
 
@@ -51,16 +54,13 @@ set directory=~/tmp,/tmp
 
 set laststatus=2
 
-
-
-
 syntax on
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
 
 " switch cursor to line when in insert mode, and block when not
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-  \,sm:block-blinkwait175-blinkoff150-blinkon175
+" set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+"             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+"             \,sm:block-blinkwait175-blinkoff150-blinkon175
 
 " if &term =~ '256color'
 "     " disable background color erase
@@ -69,21 +69,21 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " enable 24 bit color support if supported
 
-	 " let g:onedark_termcolors=16
- " let g:onedark_terminal_italics=1
- set background=dark
- let g:dracula_colorterm = 0
- colorscheme dracula
+" let g:onedark_termcolors=16
+" let g:onedark_terminal_italics=1
+set background=dark
+let g:dracula_colorterm = 0
+colorscheme dracula
 if has("gui_running")
     let g:dracula_colorterm = 1
     colorscheme macvim
 endif
 
- let g:ragtag_global_maps = 1
+let g:ragtag_global_maps = 1
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermfg=236
-highlight NonText ctermfg=236
+" highlight NonText ctermfg=236
 
 " make comments and HTML attributes italic
 "
@@ -129,8 +129,6 @@ set softtabstop=4           " edit as if the tabs are 4 characters wide
 set shiftwidth=4            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
-
-
 
 " code folding settings
 set foldmethod=indent       " fold based on indent
@@ -183,8 +181,8 @@ set tm=500
 set shortmess-=c
 
 if has('mouse')
-	set mouse=a
-	" set ttymouse=xterm2
+    set mouse=a
+    " set ttymouse=xterm2
 endif
 
 " }}}
@@ -227,17 +225,16 @@ nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
 
 " Strip whitespace on save
 fun! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
 endfun
-
 
 nmap <leader>l :set list!<cr>
 
@@ -364,28 +361,29 @@ set complete=.,w,b,u,t
 " Enable auto-completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-  "" Insert mode completion
+
+"" Insert mode completion
 "imap <c-x><c-k> <plug>(fzf-complete-word)
 "imap <c-x><c-f> <plug>(fzf-complete-path)
 "imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 "imap <c-x><c-l> <plug>(fzf-complete-line)
 
 "nnoremap <silent> <Leader>C :call fzf#run({
-"\   'source':
-"\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-"\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-"\   'sink':    'colo',
-"\   'options': '+m',
-"\   'left':    30
-"\ })<CR>
+            "\   'source':
+            "\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+            "\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+            "\   'sink':    'colo',
+            "\   'options': '+m',
+            "\   'left':    30
+            "\ })<CR>
 
 "command! FZFMru call fzf#run({
-"\  'source':  v:oldfiles,
-"\  'sink':    'e',
-"\  'options': '-m -x +s',
-"\  'down':    '40%'})
+            "\  'source':  v:oldfiles,
+            "\  'sink':    'e',
+            "\  'options': '-m -x +s',
+            "\  'down':    '40%'})
 
 "command! -bang -nargs=* Find call fzf#vim#grep(
 "	\ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>, 1,
@@ -394,10 +392,10 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " Emmet
 """""""""""""""""""""""""""""""""""""
 let g:user_emmet_settings = {
-\  'javascript.jsx': {
-\      'extends': 'jsx',
-\  },
-\}
+            \  'javascript.jsx': {
+            \      'extends': 'jsx',
+            \  },
+            \}
 
 let g:jsx_ext_required = 0
 
@@ -419,27 +417,32 @@ let g:ale_python_flake8_options = '--ignore E501,E128,E123,E126'
 
 " let g:le_change_sign_column_color = 1
 let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '✖'
+let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint', 'tsserver'],
-\   'perl': ['perl', 'perlcritic'],
-\	'html': []
-\}
+            \   'javascript': ['eslint'],
+            \   'typescript': ['tslint', 'tsserver'],
+            \   'perl': ['perl', 'perlcritic'],
+            \	'html': []
+            \}
+
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint'],
+" \}
+
 
 " " airline options
 let g:airline_powerline_fonts=1
 
-
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 " let g:airline_theme='onedark'
- " let g:airline_theme='base16'
- let g:airline_theme='dracula'
+" let g:airline_theme='base16'
+let g:airline_theme='dracula'
 let g:airline#extensions#tabline#enabled = 0 " enable airline tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
@@ -447,9 +450,7 @@ let g:airline#extensions#tabline#show_buffers = 1 " do not show open buffers in 
 let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-
-
- map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
@@ -457,14 +458,13 @@ let g:vim_json_syntax_conceal = 0
 let g:SuperTabCrMapping = 0
 " }}}
 
-
-
 " Return to the same line you left off at
-  augroup line_return
-      au!
-      au BufReadPost * 
-	    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-	  \    execute 'normal! g`"zvzz' |
-	  \ endif
-  augroup END
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \    execute 'normal! g`"zvzz' |
+                \ endif
+augroup END
+
 
