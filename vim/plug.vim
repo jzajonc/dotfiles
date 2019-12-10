@@ -52,14 +52,10 @@ Plug 'christoomey/vim-tmux-navigator' " TMUX & VIM splict commont shortcuts
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'w0rp/ale' " Asynchonous linting engine
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'do': 'npm install'} "Code autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Install plugins by :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css
 
 Plug 'Yggdroot/indentLine'  "indent lines
 Plug 'tpope/vim-fugitive' " amazing git wrapper for viPlug 'ctrlpvim/ctrlp.vim'

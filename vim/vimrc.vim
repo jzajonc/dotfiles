@@ -177,9 +177,6 @@ set visualbell
 set t_vb=
 set tm=500
 
-"Show insert completion menu
-set shortmess-=c
-
 if has('mouse')
     set mouse=a
     " set ttymouse=xterm2
@@ -260,12 +257,30 @@ map <leader>wc :wincmd q<cr>
 " move line mappings
 " ∆ is <A-j> on macOS
 " ˚ is <A-k> on macOS
-nnoremap ∆ :m .+1<cr>==
-nnoremap ˚ :m .-2<cr>==
-inoremap ∆ <Esc>:m .+1<cr>==gi
-inoremap ˚ <Esc>:m .-2<cr>==gi
-vnoremap ∆ :m '>+1<cr>gv=gv
-vnoremap ˚ :m '<-2<cr>gv=gv
+" 
+"
+" Alt to Esc mapping workaround
+let c='a'
+while c <= 'z'
+exec "set <A-".c.">=\e".c
+exec "imap \e".c." <A-".c.">"
+let c = nr2char(1+char2nr(c))
+endw
+set ttimeout ttimeoutlen=50
+
+nnoremap <M-j> :m .+1<cr>==
+nnoremap <M-k> :m .-2<cr>==
+inoremap <M-j> <Esc>:m .+1<cr>==gi
+inoremap <M-k> <Esc>:m .-2<cr>==gi
+vnoremap <M-j> :m '>+1<cr>gv=gv
+vnoremap <M-k> :m '<-2<cr>gv=gv
+
+" nnoremap ∆ :m .+1<cr>==
+" nnoremap ˚ :m .-2<cr>==
+" inoremap ∆ <Esc>:m .+1<cr>==gi
+" inoremap ˚ <Esc>:m .-2<cr>==gi
+" vnoremap ∆ :m '>+1<cr>gv=gv
+" vnoremap ˚ :m '<-2<cr>gv=gv
 
 " toggle cursor line
 nnoremap <leader>i :set cursorline!<cr>
@@ -433,6 +448,8 @@ let g:ale_linters = {
 " \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 " \   'javascript': ['eslint'],
 " \}
+"
+"
 
 
 " " airline options
