@@ -33,6 +33,7 @@ Plug 'mechatroner/rainbow_csv'
 
 
 Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
+" Plug 'Konfekt/FastFold'  " Workaround for Extremly slow perl folding 
 
 " utilities
 " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin'  " file drawer
@@ -54,7 +55,9 @@ Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'w0rp/ale' " Asynchonous linting engine
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Plug 'neoclide/coc.nvim', {'do': 'npm install'} "Code autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if executable('node')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 " Install plugins by :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css
 
 Plug 'Yggdroot/indentLine'  "indent lines

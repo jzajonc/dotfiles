@@ -131,16 +131,31 @@ set shiftround              " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
 
 " code folding settings
-set foldmethod=indent       " fold based on indent
+" set foldmethod=indent       " fold based on indent
+set foldmethod=syntax 
 set foldlevelstart=3
 set foldnestmax=10          " deepest fold is 10 levels
-set nofoldenable            " don't fold by default
+" set nofoldenable            " don't fold by default
 " set foldlevel=1
 " let perl_fold=1
 " let perl_fold_blocks = 1
 " let sh_fold_enabled=1
-" let perl_extended_vars=1
-" let perl_sync_dist=250
+let perl_extended_vars=1
+let perl_sync_dist=250
+"
+let markdown_folding = 1
+let tex_fold_enabled = 1
+let vimsyn_folding = 'af'
+let xml_syntax_folding = 1
+let javaScript_fold = 1
+let sh_fold_enabled= 7
+let ruby_fold = 1
+let perl_fold = 1
+" let perl_fold_blocks = 1
+" let r_syntax_folding = 1
+" let rust_fold = 1
+let php_folding = 1
+
 
 " set clipboard=unnamed
 set clipboard^=unnamed,unnamedplus
