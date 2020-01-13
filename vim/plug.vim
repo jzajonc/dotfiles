@@ -33,6 +33,7 @@ Plug 'mechatroner/rainbow_csv'
 
 
 Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
+" Plug 'WolfgangMehner/perl-support'
 " Plug 'Konfekt/FastFold'  " Workaround for Extremly slow perl folding 
 
 " utilities
