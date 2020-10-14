@@ -51,7 +51,12 @@ source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source ~/dotfiles/zsh/keybindings.sh
 source $HOME/dotfiles/zsh/plugins/fixls.zsh
 source $HOME/dotfiles/zsh/keybindings.sh
-source $HOME/dotfiles/zsh/prompt.sh
+
+# source $HOME/dotfiles/zsh/prompt.sh
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+RPS1=%b
+[[ $- = *i* ]] && source ~/dotfiles/liquidprompt/liquidprompt
+
 
 #Functions
 # Custom cd
