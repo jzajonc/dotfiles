@@ -2,6 +2,10 @@ set nocompatible
 :setlocal keywordprg=:help
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+"====[ I'm sick of typing :%s/.../.../g ]=======
+
+nmap S   :%s//g<LEFT><LEFT>
+xmap S                         :s//g<LEFT><LEFT>
 
 "CtrlP start searching from current Dir (not upper tree)
 let g:ctrlp_working_path_mode = 'ca'
