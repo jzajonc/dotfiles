@@ -15,6 +15,73 @@ let g:ctrlp_custom_ignore = {
 "Search into subfolders
 " set path+=**
 
+
+" go-vim plugin specific commands
+" Also run `goimports` on your current file on every save
+" Might be be slow on large codebases, if so, just comment it out
+let g:go_fmt_command = "goimports"
+
+" CoC helpers
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Status line types/signatures.
+let g:go_auto_type_info = 1
+" set updatetime=100
+
+let g:go_auto_sameids = 1
+
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+" let g:go_def_mapping_enabled = 0
+
+set autowrite
+" Make all list quickfix
+" let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:UltiSnipsListSnippets="<C-Space>"
+
+
+"au filetype go inoremap <buffer> . .<C-x><C-o>
+"
+
+"Go keywords
+" autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+
+
 "TT support
 au BufNewFile,BufRead *.tt2 setf tt2html
 
@@ -41,9 +108,10 @@ if filereadable(expand("~/dotfiles/vim/plug.vim"))
     source ~/dotfiles/vim/plug.vim
 endif
 
-if filereadable(expand("~/dotfiles/vim/foldsearches.vim"))
-    source ~/dotfiles/vim/foldsearches.vim
-endif
+" Disable fold searhce for now
+" if filereadable(expand("~/dotfiles/vim/foldsearches.vim"))
+"     source ~/dotfiles/vim/foldsearches.vim
+" endif
 
 " Abbreviations (for typos corrxtion)
 abbr teh the
@@ -76,7 +144,7 @@ set t_Co=256                " Explicitly tell vim that the terminal supports 256
 " let g:onedark_termcolors=16
 " let g:onedark_terminal_italics=1
 set background=dark
-let g:dracula_colorterm = 0
+let g:dracula_colorterm = 1
 colorscheme dracula
 if has("gui_running")
     let g:dracula_colorterm = 1
@@ -132,7 +200,6 @@ set tabstop=4               " the visible width of tabs
 set softtabstop=4           " edit as if the tabs are 4 characters wide
 set shiftwidth=4            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
-set completeopt+=longest
 
 " code folding settings
 " set foldmethod=indent       " fold based on indent
@@ -254,7 +321,7 @@ set noshowmode              " don't show which mode disabled for PowerLine
 set wildmode=list:longest   " complete files like a shell
 set scrolloff=3             " lines of text around cursor
 set shell=$SHELL
-set cmdheight=1             " command bar height
+set cmdheight=2             " command bar height
 set title                   " set terminal title
 
 " Searching
@@ -366,19 +433,23 @@ let c = nr2char(1+char2nr(c))
 endw
 set ttimeout ttimeoutlen=50
 
-nnoremap <M-j> :m .+1<cr>==
-nnoremap <M-k> :m .-2<cr>==
-inoremap <M-j> <Esc>:m .+1<cr>==gi
-inoremap <M-k> <Esc>:m .-2<cr>==gi
-vnoremap <M-j> :m '>+1<cr>gv=gv
-vnoremap <M-k> :m '<-2<cr>gv=gv
 
-" nnoremap ∆ :m .+1<cr>==
-" nnoremap ˚ :m .-2<cr>==
-" inoremap ∆ <Esc>:m .+1<cr>==gi
-" inoremap ˚ <Esc>:m .-2<cr>==gi
-" vnoremap ∆ :m '>+1<cr>gv=gv
-" vnoremap ˚ :m '<-2<cr>gv=gv
+if has('macunix')
+    nnoremap ∆ :m .+1<cr>==
+    nnoremap ˚ :m .-2<cr>==
+    vnoremap ˚ :m '<-2<cr>gv=gv
+    inoremap ∆ <Esc>:m .+1<cr>==gi
+    inoremap ˚ <Esc>:m .-2<cr>==gi
+    vnoremap ∆ :m '>+1<cr>gv=gv
+else
+    nnoremap <M-j> :m .+1<cr>==
+    nnoremap <M-k> :m .-2<cr>==
+    inoremap <M-j> <Esc>:m .+1<cr>==gi
+    inoremap <M-k> <Esc>:m .-2<cr>==gi
+    vnoremap <M-j> :m '>+1<cr>gv=gv
+    vnoremap <M-k> :m '<-2<cr>gv=gv
+endif
+
 
 " toggle cursor line
 nnoremap <leader>i :set cursorline!<cr>
@@ -398,7 +469,7 @@ nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-map <leader>r :call RunCustomCommand()<cr>
+" map <leader>r :call RunCustomCommand()<cr>
 " map <leader>s :call SetCustomCommand()<cr>
 let g:silent_custom_command = 0
 
@@ -408,7 +479,7 @@ nmap \s :set ts=4 sts=4 sw=4 et<cr>
 
 nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
 
-command! Rm call functions#Delete()
+command! Rmmcall functions#Delete()
 command! RM call functions#Delete() <Bar> q!
 
 " }}}
@@ -570,6 +641,8 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
 
+let g:indentLine_concealcursor = ''
+
 let g:SuperTabCrMapping = 0
 " }}}
 
@@ -581,5 +654,4 @@ augroup line_return
                 \    execute 'normal! g`"zvzz' |
                 \ endif
 augroup END
-
 

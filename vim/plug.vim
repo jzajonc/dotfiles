@@ -25,12 +25,15 @@ Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim'
+Plug 'sickill/vim-monokai'
 
 "CSV Plugin
 Plug 'mechatroner/rainbow_csv'
 
 " Plug 'valloric/youcompleteme'  "vim completion plugin 
 
+Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
+Plug 'SirVer/ultisnips'
 
 Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
 " Plug 'WolfgangMehner/perl-support'
@@ -61,11 +64,13 @@ if executable('node')
 endif
 " Install plugins by :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css
 
+Plug 'hashivim/vim-terraform'
+
 Plug 'Yggdroot/indentLine'  "indent lines
 Plug 'tpope/vim-fugitive' " amazing git wrapper for viPlug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-rhubarb' " hub extension for fugitive
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
-Plug 'garbas/vim-snipmate' " snippet manager
+" Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 Plug 'tomtom/tlib_vim' " utility functions for vim
@@ -116,7 +121,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " markdown
 " Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
-Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
+" Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
+Plug 'plasticboy/vim-markdown'
 
 " language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
