@@ -5,7 +5,11 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "====[ I'm sick of typing :%s/.../.../g ]=======
 
 nmap S   :%s//g<LEFT><LEFT>
-xmap S                         :s//g<LEFT><LEFT>
+xmap S   :s//g<LEFT><LEFT>
+
+
+let &t_TI = ""
+let &t_TE = ""
 
 "CtrlP start searching from current Dir (not upper tree)
 let g:ctrlp_working_path_mode = 'ca'
@@ -600,6 +604,23 @@ nmap <leader>* *<c-o>:%s///gn<cr>
 
 let $PWD=expand('~')
 let g:mkdp_markdown_css = expand('~') . '/dotfiles/vim/github-markdown.css'
+
+" SnipMate new parser
+let g:snipMate = { 'snippet_version' : 1 }
+
+" Markdown preview URL insteqad of opnening browser
+" This allow remote server previes
+
+let g:mkdp_open_to_the_world = 1
+let g:mkdp_open_ip = trim(system('hostname -f'))
+
+function OpenMarkdownPreview (url)
+      echo a:url
+endfunction
+
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+
+" Markdown preview URL
 
 let g:ale_python_flake8_options = '--ignore E501,E128,E123,E126'
 
