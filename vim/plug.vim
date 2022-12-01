@@ -22,10 +22,10 @@ call plug#begin(expand('~/.vim/plugged'))
 
 " colorschemes
 Plug 'joshdick/onedark.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/base16-vim'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim'
-Plug 'sickill/vim-monokai'
+"Plug 'sickill/vim-monokai'
 
 "CSV Plugin
 Plug 'mechatroner/rainbow_csv'
@@ -34,7 +34,6 @@ Plug 'mechatroner/rainbow_csv'
 
 Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
 
-" Plug 'SirVer/ultisnips'
 
 Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } "perl plugins
 " Plug 'WolfgangMehner/perl-support'
@@ -46,13 +45,13 @@ Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highl
 Plug 'airblade/vim-gitgutter' " Show git giff on file
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
-Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
+" Plug 'mileszs/ack.vim' " search inside iles using ack. Same as command line ack utility, but use :Ack
+" Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
 " Plug 'tpope/vim-endwise' " automatically add end in ruby
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - ehances surround
-Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
+Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'christoomey/vim-tmux-navigator' " TMUX & VIM splict commont shortcuts
 Plug 'vim-airline/vim-airline' " fancy statusline
@@ -71,7 +70,9 @@ Plug 'Yggdroot/indentLine'  "indent lines
 Plug 'tpope/vim-fugitive' " amazing git wrapper for viPlug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-rhubarb' " hub extension for fugitive
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
-Plug 'garbas/vim-snipmate' " snippet manager
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+" Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 Plug 'tomtom/tlib_vim' " utility functions for vim
