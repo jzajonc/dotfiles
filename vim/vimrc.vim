@@ -1,3 +1,23 @@
+
+"=== notes ===
+" Go to index of notes
+
+if  empty($NOTES_DIR)
+    let $NOTES_DIR = expand("~/notes")
+else
+    let $NOTES_DIR = expand($NOTES_DIR)
+endif
+
+nnoremap <leader>ni :e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>
+
+command! -nargs=1 Ngrep vimgrep "<args>" $NOTES_DIR/**/*.md
+nnoremap <leader>ng :Ngrep 
+
+command! Vlist botright vertical copen | vertical resize 50
+nnoremap <leader>nv :Vlist<CR>
+
+"=== notes ===
+
 set nocompatible
 :setlocal keywordprg=:help
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -12,8 +32,8 @@ let &t_TI = ""
 let &t_TE = ""
 
 "CtrlP start searching from current Dir (not upper tree)
-let g:ctrlp_working_path_mode = 'ca'
-"CtrP Ignore some filetypes
+let g:ctrlp_working_path_mode = 'w'
+" CtrP Ignore some filetypes
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '[\/]\.(git|hg|svn)$',
             \ 'file': '\.(exe|so|dll)$',
