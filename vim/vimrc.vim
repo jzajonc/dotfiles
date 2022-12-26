@@ -48,6 +48,8 @@ let g:ctrlp_custom_ignore = {
 " Also run `goimports` on your current file on every save
 " Might be be slow on large codebases, if so, just comment it out
 let g:go_fmt_command = "goimports"
+let g:go_fmt_experimental = 1
+
 
 " CoC helpers
 " Use <c-space> to trigger completion.
@@ -81,7 +83,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:UltiSnipsListSnippets="<C-Space>"
+let g:UltiSnipsListSnippets="<C-tab>"
 
 
 "au filetype go inoremap <buffer> . .<C-x><C-o>
@@ -231,17 +233,20 @@ set shiftround              " round indent to a multiple of 'shiftwidth'
 
 " code folding settings
 " set foldmethod=indent       " fold based on indent
-" set foldmethod=syntax 
-" set foldlevelstart=3
-" set foldnestmax=10          " deepest fold is 10 levels
+set foldmethod=syntax 
+" set foldlevelstart=0
+set foldnestmax=1          " deepest fold is 10 levels
 " set nofoldenable            " don't fold by default
 " set foldlevel=1
-" let perl_fold=1
+let perl_fold=1
 " let perl_fold_blocks = 1
 " let sh_fold_enabled=1
 " let perl_extended_vars=1
 " let perl_sync_dist=250
 "
+nnoremap <space><space> za
+vnoremap <space><space> za
+
 let markdown_folding = 1
 " let tex_fold_enabled = 1
 " let vimsyn_folding = 'af'
@@ -249,7 +254,7 @@ let xml_syntax_folding = 1
 " let javaScript_fold = 1
 " let sh_fold_enabled= 7
 " let ruby_fold = 1
-" let perl_fold = 1
+let perl_fold = 1
 " let perl_fold_blocks = 1
 " let r_syntax_folding = 1
 " let rust_fold = 1
@@ -258,81 +263,26 @@ let xml_syntax_folding = 1
 "=====[ Search folding ]=====================
 
 " Don't start new buffers folded
-set foldlevelstart=99
+" set foldlevelstart=99
 
 " Highlight folds
-highlight Folded  ctermfg=cyan ctermbg=black
-
-" Toggle special folds on and off...
-nmap <silent> <expr>  zz  FS_ToggleFoldAroundSearch({'context':1})
-nmap <silent> <expr>  zc  FS_ToggleFoldAroundSearch({'hud':1})
-
-
-" Heads-up on function names (in Vim and Perl)...
-
-let g:HUD_search = {
-\   'vim':  { 'list':     [ { 'start': '^\s*fu\%[nction]\>!\?\s*\w\+.*',
-\                             'end':   '^\s*endf\%[unction]\>\zs',
-\                           },
-\                           { 'start': '^\s*aug\%[roup]\>!\?\s*\%(END\>\)\@!\w\+.*',
-\                             'end':   '^\s*aug\%[roup]\s\+END\>\zs',
-\                           },
-\                         ],
-\              'default': '"file " . expand("%:~:.")',
-\           },
-\
-\   'perl': { 'list':    [ { 'start': '\_^\s*\zssub\s\+\w\+.\{-}\ze\s*{\|^__\%(DATA\|END\)__$',
-\                            'end':   '}\zs',
-\                          },
-\                          { 'start': '\_^\s*\zspackage\s\+\w\+.\{-}\ze\s*{',
-\                            'end':   '}\zs',
-\                          },
-\                          { 'start': '\_^\s*\zspackage\s\+\w\+.\{-}\ze\s*;',
-\                            'end':   '\%$',
-\                          },
-\                        ],
-\             'default': '"package main"',
-\          },
-\ }
-
-function! HUD ()
-    let target = get(g:HUD_search, &filetype, {})
-    let name = "'????'"
-    if !empty(target)
-        let name = eval(target.default)
-        for nexttarget in target.list
-            let [linestart, colstart] = searchpairpos(nexttarget.start, '', nexttarget.end, 'cbnW')
-            if linestart
-                let name = matchstr(getline(linestart), nexttarget.start)
-                break
-            endif
-        endfor
-    endif
-
-    if line('.') <= b:FS_DATA.context
-        return '⎺⎺⎺⎺⎺\ ' . name . ' /⎺⎺⎺⎺⎺' . repeat('⎺',200)
-    else
-        return '⎽⎽⎽⎽⎽/ ' . name . ' \⎽⎽⎽⎽⎽' . repeat('⎽',200)
-    endif
-endfunction
-
-nmap <silent> <expr>  zh  FS_ToggleFoldAroundSearch({'hud':1, 'folds':'HUD()', 'context':3})
+" highlight Folded  ctermfg=cyan ctermbg=black
 
 
 " Show only sub defns (and maybe comments)...
-let perl_sub_pat = '^\s*\%(sub\|func\|method\|package\)\s\+\k\+'
-let vim_sub_pat  = '^\s*fu\%[nction!]\s\+\k\+'
-augroup FoldSub
-    autocmd!
-    autocmd BufEnter * nmap <silent> <expr>  zp  FS_FoldAroundTarget(perl_sub_pat,{'context':1})
-    autocmd BufEnter * nmap <silent> <expr>  za  FS_FoldAroundTarget(perl_sub_pat.'\zs\\|^\s*#.*',{'context':0, 'folds':'invisible'})
-    autocmd BufEnter *.vim,.vimrc nmap <silent> <expr>  zp  FS_FoldAroundTarget(vim_sub_pat,{'context':1})
-    autocmd BufEnter *.vim,.vimrc nmap <silent> <expr>  za  FS_FoldAroundTarget(vim_sub_pat.'\\|^\s*".*',{'context':0, 'folds':'invisible'})
-    autocmd BufEnter * nmap <silent> <expr>             zv  FS_FoldAroundTarget(vim_sub_pat.'\\|^\s*".*',{'context':0, 'folds':'invisible'})
-augroup END
+" let perl_sub_pat = '^\s*\%(sub\|func\|method\|package\)\s\+\k\+'
+" let vim_sub_pat  = '^\s*fu\%[nction!]\s\+\k\+'
+" augroup FoldSub
+"     autocmd!
+"     autocmd BufEnter * nmap <silent> <expr>  zp  FS_FoldAroundTarget(perl_sub_pat,{'context':1})
+"     autocmd BufEnter * nmap <silent> <expr>  za  FS_FoldAroundTarget(perl_sub_pat.'\zs\\|^\s*#.*',{'context':0, 'folds':'invisible'})
+"     autocmd BufEnter *.vim,.vimrc nmap <silent> <expr>  zp  FS_FoldAroundTarget(vim_sub_pat,{'context':1})
+"     autocmd BufEnter *.vim,.vimrc nmap <silent> <expr>  za  FS_FoldAroundTarget(vim_sub_pat.'\\|^\s*".*',{'context':0, 'folds':'invisible'})
+"     autocmd BufEnter * nmap <silent> <expr>             zv  FS_FoldAroundTarget(vim_sub_pat.'\\|^\s*".*',{'context':0, 'folds':'invisible'})
+" augroup END
 
 " Show only 'use' statements
-nmap <silent> <expr>  zu  FS_FoldAroundTarget('\(^\s*\(use\\|no\)\s\+\S.*;\\|\<require\>\s\+\S\+\)',{'context':1})
+" nmap <silent> <expr>  zu  FS_FoldAroundTarget('\(^\s*\(use\\|no\)\s\+\S.*;\\|\<require\>\s\+\S\+\)',{'context':1})
 
 
 " set clipboard=unnamed
