@@ -16,6 +16,9 @@ nnoremap <leader>ng :Ngrep
 command! Vlist botright vertical copen | vertical resize 50
 nnoremap <leader>nv :Vlist<CR>
 
+command! -nargs=1 NewNote :execute ":e" $NOTES_DIR . "/notes/" . strftime("%Y%m%d%H%M") . "-<args>.md"
+nnoremap <leader>nn :NewNote 
+
 "=== notes ===
 
 set nocompatible
@@ -30,6 +33,32 @@ xmap S   :s//g<LEFT><LEFT>
 
 let &t_TI = ""
 let &t_TE = ""
+
+" CtrlP function for inserting a markdown link with Ctrl-X
+function! CtrlPOpenFunc(action, line)
+   if a:action =~ '^h$'
+      " Get the filename
+      let filename = fnameescape(fnamemodify(a:line, ':t'))
+      let l:filename_wo_timestamp = fnameescape(fnamemodify(a:line, ':t:s/\(^\d\+-\)\?\(.*\)\..\{1,3\}/\2/'))
+      let l:filename_wo_timestamp = substitute(l:filename_wo_timestamp, "_", " ", "g")
+
+      " Close CtrlP
+      call ctrlp#exit()
+      call ctrlp#mrufiles#add(filename)
+
+      " Insert the markdown link to the file in the current buffer
+	  let mdlink = "[".filename_wo_timestamp."]( ".filename." )"
+      put=mdlink
+  else
+      " Use CtrlP's default file opening function
+      call call('ctrlp#acceptfile', [a:action, a:line])
+   endif
+endfunction
+
+let g:ctrlp_open_func = {
+         \ 'files': 'CtrlPOpenFunc',
+         \ 'mru files': 'CtrlPOpenFunc'
+         \ }
 
 "CtrlP start searching from current Dir (not upper tree)
 let g:ctrlp_working_path_mode = 'w'
@@ -83,7 +112,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:UltiSnipsListSnippets="<C-tab>"
+let g:UltiSnipsListSnippets="<C-@>"
 
 
 "au filetype go inoremap <buffer> . .<C-x><C-o>
@@ -476,7 +505,7 @@ augroup configgroup
 
     " make quickfix windows take all the lower section of the screen
     " when there are multiple windows open
-    autocmd FileType qf wincmd J
+    " autocmd FileType qf wincmd J
     autocmd FileType qf nmap q :q<cr>
 
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
