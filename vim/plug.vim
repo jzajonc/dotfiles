@@ -123,7 +123,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " markdown
 " Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
 " Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+Plug 'preservim/vim-markdown'
+Plug 'godlygeek/tabular'
+
 
 " language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support

@@ -3,7 +3,7 @@
 " Go to index of notes
 
 if  empty($NOTES_DIR)
-    let $NOTES_DIR = expand("~/notes")
+    let $NOTES_DIR = expand("~/doc")
 else
     let $NOTES_DIR = expand($NOTES_DIR)
 endif
@@ -264,7 +264,7 @@ set shiftround              " round indent to a multiple of 'shiftwidth'
 " set foldmethod=indent       " fold based on indent
 set foldmethod=syntax 
 " set foldlevelstart=0
-set foldnestmax=1          " deepest fold is 10 levels
+set foldnestmax=5          " deepest fold is 10 levels
 " set nofoldenable            " don't fold by default
 " set foldlevel=1
 let perl_fold=1
@@ -272,7 +272,10 @@ let perl_fold=1
 " let sh_fold_enabled=1
 " let perl_extended_vars=1
 " let perl_sync_dist=250
-"
+
+let g:vim_markdown_folding_style_pythonic = 1
+" let g:vim_markdown_folding_level = 6
+
 nnoremap <space><space> za
 vnoremap <space><space> za
 
@@ -288,6 +291,12 @@ let perl_fold = 1
 " let r_syntax_folding = 1
 " let rust_fold = 1
 " let php_folding = 1
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 "=====[ Search folding ]=====================
 
@@ -359,7 +368,7 @@ endif
 " Section Mappings {{{
 
 " set a map leader for more key combos
-" let mapleader = ','
+" let mapleader = '\'
 
 " remap esc
 " inoremap jk <esc>
@@ -385,6 +394,12 @@ noremap <space> :set hlsearch! hlsearch?<cr>
 " activate spell-checking alternatives
 nmap ;s :set invspell spelllang=en<cr>
 
+" Accept spelling corrections on the fly
+" Source: castel.dev
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+autocmd FileType markdown setlocal spell
+"
 " markdown to html
 nmap <leader>md :%!markdown --html4tags <cr>
 
