@@ -618,6 +618,7 @@ nmap <leader>* *<c-o>:%s///gn<cr>
 
 let $PWD=expand('~')
 let g:mkdp_markdown_css = expand('~') . '/dotfiles/vim/github-markdown.css'
+let g:mkdp_theme = 'light'
 
 " SnipMate new parser
 let g:snipMate = { 'snippet_version' : 1 }
