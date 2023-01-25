@@ -2,7 +2,13 @@
 "" Vim-PLug core
 "*****************************************************************************
 
-let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+if  empty($VIM_PLUGINS)
+    let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+    let $VIM_PLUGINS=expand('~')
+else
+    let vimplug_exists  = expand($VIM_PLUGINS . '/autoload/plug.vim')
+endif
+
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -11,14 +17,15 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " silent !\curl -fLo vimplug_exists --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent !\curl -fLo "$VIM_PLUGINS/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
 endif
 
 " Required:
-call plug#begin(expand('~/.vim/plugged'))
+call plug#begin(expand($VIM_PLUGINS . '/plugged'))
 
 " colorschemes
 Plug 'joshdick/onedark.vim'

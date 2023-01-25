@@ -2,6 +2,10 @@
 "=== notes ===
 " Go to index of notes
 
+if  empty($DOTFILES)
+    let $DOTFILES = expand("~/dotfiles")
+endif
+
 if  empty($NOTES_DIR)
     let $NOTES_DIR = expand("~/doc")
 else
@@ -163,8 +167,8 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <C-o>gj
 
-if filereadable(expand("~/dotfiles/vim/plug.vim"))
-    source ~/dotfiles/vim/plug.vim
+if filereadable(expand("$DOTFILES/vim/plug.vim"))
+    source $DOTFILES/vim/plug.vim
 endif
 
 " Disable fold searhce for now
@@ -617,7 +621,7 @@ nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
 
 let $PWD=expand('~')
-let g:mkdp_markdown_css = expand('~') . '/dotfiles/vim/github-markdown.css'
+let g:mkdp_markdown_css = expand($DOTFILES) . '/vim/github-markdown.css'
 let g:mkdp_theme = 'light'
 
 " SnipMate new parser
