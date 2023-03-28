@@ -4,7 +4,7 @@
 
 if  empty($VIM_PLUGINS)
     let vimplug_exists=expand('~/.vim/autoload/plug.vim')
-    let $VIM_PLUGINS=expand('~')
+    let $VIM_PLUGINS=expand('~/.vim')
 else
     let vimplug_exists  = expand($VIM_PLUGINS . '/autoload/plug.vim')
 endif
@@ -51,6 +51,7 @@ Plug 'vim-perl/vim-perl' ", { 'for': 'perl', 'do': 'make clean carp dancer highl
 Plug 'airblade/vim-gitgutter' " Show git giff on file
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'mileszs/ack.vim' " search inside iles using ack. Same as command line ack utility, but use :Ack
 " Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-commentary' " comment stuff out
